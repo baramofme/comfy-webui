@@ -329,7 +329,8 @@ def _execute_imagegen_pipeline(task_id: str, params: dict):
                         bg.paste(pil_img, mask=pil_img.split()[3])
                         ui_values[f"{prefix}_input_image_dict"] = {"background": bg, "layers": [pil_img]}
                     else:
-                        ui_values[f"{prefix}_input_image_dict"] = {"background": pil_img, "layers": [pil_img]}
+                        bg = pil_img.convert("RGB")
+                        ui_values[f"{prefix}_input_image_dict"] = {"background": bg, "layers": [pil_img]}
                     if pinned_inpaint:
                         # Full denoise inside the mask: Qwen-Edit was trained
                         # on whole-image edits, partial denoise under-edits.
