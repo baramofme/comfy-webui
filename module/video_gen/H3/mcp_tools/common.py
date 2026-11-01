@@ -168,6 +168,58 @@ def _parse_video_param(video_param: Any) -> Any:
     return video_param
 
 
+def _normalize_lora_entries(raw: Any) -> list:
+    """Accept every incoming `loras` shape (plain string name, single dict,
+    or list of items) and return a flat list of entries."""
+    if raw is None:
+        return []
+    if isinstance(raw, str):
+        raw = raw.strip()
+        return [raw] if raw else []
+    if isinstance(raw, dict):
+        return [raw]
+    if isinstance(raw, list):
+        return raw
+    return []
+
+
+def _lora_entry_to_prefixed(item: Any):
+    """Map one incoming LoRA item to (source, id, scale) — the shape
+    comfy_webui_core.process_lora_inputs consumes from the prefixed lists.
+
+    Mirrors module/imagegen/mcp_tools/common.py. Local files (bare names,
+    dicts without an explicit source, 'Upload File') use the 'Upload File'
+    source, which process_lora_inputs maps to the bare id as the LoraLoader
+    lora_name — correct for ComfyUI paths relative to models/loras. Explicit
+    'Hugging Face' / 'Civitai' / 'Custom URL' sources pass through and are
+    downloaded by process_lora_inputs. An explicit 'File' source keeps the
+    subfolder-aware 'file/<path>' naming (dropdown form)."""
+    if isinstance(item, str):
+        name = os.path.basename(item.strip())
+        return ('Upload File', name, 1.0) if name else None
+    if not isinstance(item, dict):
+        return None
+
+    src = item.get('source') or item.get('lora_source')
+    idv = item.get('id_or_url') or item.get('id') or item.get('lora_value') or item.get('value')
+    scale_raw = item.get('scale', item.get('strength', item.get('strength_model', 1.0)))
+    try:
+        scale = float(scale_raw)
+    except (TypeError, ValueError):
+        scale = 1.0
+
+    if src in ('Hugging Face', 'Civitai', 'Custom URL'):
+        return (src, idv, scale) if idv else None
+    if src == 'File':
+        name = idv or item.get('lora_name')
+        return ('File', name, scale) if name else None
+    # Missing / unknown / 'Upload File' source: treat as a local file in
+    # models/loras — bare filename, per the established decision.
+    name = item.get('lora_name') or idv
+    name = os.path.basename(str(name).strip()) if name else ''
+    return ('Upload File', name, scale) if name else None
+
+
 def _parse_audio_param(audio_param: Any) -> Any:
     """Parse an audio parameter: returns a local file path, downloading from URL or saving from Base64 if necessary."""
     if not isinstance(audio_param, str) or not audio_param.strip():
@@ -379,9 +431,26 @@ def _execute_h3_pipeline(task_id: str, params: dict, request: Any = None):
             output_format = "mp4"
         generate_audio = bool(params.get("generate_audio", True))
 
-        # LoRA parsing
-        loras_param = params.get("loras")
-        loras_list = loras_param if isinstance(loras_param, list) else []
+        # LoRA parsing. The recipe's dynamic_lora_chains read LoRAs through
+        # comfy_webui_core.process_lora_inputs(ui_values, 'h3_lora'), which
+        # reads ONLY the prefixed h3_lora_loras_* lists and then OVERWRITES
+        # ui_values['loras']. Without the prefixed lists every LoRA silently
+        # drops (no LoraLoader in the workflow). Populate them here, mirroring
+        # module/imagegen/mcp_tools/common.py, while keeping the bare
+        # loras_list for backward compatibility / display.
+        lora_sources, lora_ids, lora_file_dropdowns, lora_scales = [], [], [], []
+        loras_list = []
+        for item in _normalize_lora_entries(params.get("loras")):
+            mapped = _lora_entry_to_prefixed(item)
+            if not mapped:
+                continue
+            src, lora_id, scale = mapped
+            lora_sources.append(src)
+            lora_ids.append(lora_id)
+            # Kept index-aligned with sources; only read when src == 'File'.
+            lora_file_dropdowns.append(lora_id)
+            lora_scales.append(scale)
+            loras_list.append({"source": src, "id_or_url": lora_id, "scale": scale})
 
         # ControlNet parsing
         parsed_cns = []
@@ -436,6 +505,13 @@ def _execute_h3_pipeline(task_id: str, params: dict, request: Any = None):
             "cfg": cfg,
             "flow_shift": flow_shift,
             "loras": loras_list,
+            # Prefixed lists read by process_lora_inputs(ui_values, 'h3_lora')
+            # inside h3_logic.process_inputs — without these the bare 'loras'
+            # above is overwritten to [] and no LoraLoader is emitted.
+            "h3_lora_loras_sources": lora_sources,
+            "h3_lora_loras_ids": lora_ids,
+            "h3_lora_loras_file_dropdowns": lora_file_dropdowns,
+            "h3_lora_loras_scales": lora_scales,
             "h3_controlnets": parsed_cns,
             "h3_guides": parsed_guides,
             # Container chip: the recipe maps save_format to SaveVideo's format
