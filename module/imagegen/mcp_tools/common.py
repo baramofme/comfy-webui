@@ -238,6 +238,20 @@ def _execute_imagegen_pipeline(task_id: str, params: dict):
         model = params["model"]
         prompt = params["prompt"]
 
+        # PINNED INPAINT ROUTE (2026-11-01): task_type "inpaint" always runs
+        # Qwen-Image-Edit-2511, whose unet is pinned in model_list.yaml to
+        # qwen_edit_2511_int4_tensorwise_mixed.safetensors. Krea-2-Turbo's
+        # inpaint re-noises the whole latent and ignores the alpha mask
+        # (measured: output differs everywhere and the UNMASKED region differs
+        # more than the masked one), so OH's masked repaint needs the
+        # instruction-editing Qwen path: the alpha-holed composite enters
+        # TextEncodeQwenImageEditPlus as a reference image while
+        # VAEEncodeForInpaint keeps the mask as the denoise boundary.
+        # A caller that already asks for Qwen-Edit by name is left untouched.
+        pinned_inpaint = task_type == "inpaint" and model != "Qwen-Image-Edit-2511"
+        if pinned_inpaint:
+            model = "Qwen-Image-Edit-2511"
+
         model_defaults = _load_yaml(_MODEL_DEFAULTS_PATH)
         model_list = _load_yaml(_MODEL_LIST_PATH)
         checkpoints = model_list.get("Checkpoint", {}) or model_list.get("Checkpoints", {})
@@ -257,10 +271,20 @@ def _execute_imagegen_pipeline(task_id: str, params: dict):
         global_defaults = model_defaults.get("Default", {})
         merged_defaults = {**global_defaults, **arch_level_defaults, **model_specific_defaults}
 
-        steps = params.get("steps") if params.get("steps") is not None else merged_defaults.get("steps", 20)
-        cfg = params.get("cfg") if params.get("cfg") is not None else merged_defaults.get("cfg", 1.0)
-        sampler = params.get("sampler") or merged_defaults.get("sampler_name", "euler")
-        scheduler = params.get("scheduler") or merged_defaults.get("scheduler", "simple")
+        if pinned_inpaint:
+            # Krea-flavoured hyperparams (steps 8 / cfg 1.0) travel with the
+            # request but tune a different model; on the pinned route the
+            # caller's explicit values are discarded and Qwen-Edit's own
+            # model_defaults.yaml numbers (20 / cfg 4.0 / euler / simple) run.
+            steps = merged_defaults.get("steps", 20)
+            cfg = merged_defaults.get("cfg", 4.0)
+            sampler = merged_defaults.get("sampler_name", "euler")
+            scheduler = merged_defaults.get("scheduler", "simple")
+        else:
+            steps = params.get("steps") if params.get("steps") is not None else merged_defaults.get("steps", 20)
+            cfg = params.get("cfg") if params.get("cfg") is not None else merged_defaults.get("cfg", 1.0)
+            sampler = params.get("sampler") or merged_defaults.get("sampler_name", "euler")
+            scheduler = params.get("scheduler") or merged_defaults.get("scheduler", "simple")
 
         prefix = task_type
         model_type_state = found_arch.lower().replace(" ", "-").replace(".", "") if found_arch else "sdxl"
@@ -306,7 +330,17 @@ def _execute_imagegen_pipeline(task_id: str, params: dict):
                         ui_values[f"{prefix}_input_image_dict"] = {"background": bg, "layers": [pil_img]}
                     else:
                         ui_values[f"{prefix}_input_image_dict"] = {"background": pil_img, "layers": [pil_img]}
-                    ui_values[f"{prefix}_denoise"] = params.get("denoise", 1.0)
+                    if pinned_inpaint:
+                        # Full denoise inside the mask: Qwen-Edit was trained
+                        # on whole-image edits, partial denoise under-edits.
+                        ui_values[f"{prefix}_denoise"] = 1.0
+                        # Feed the opaque black-holed composite as the edit
+                        # reference so the vision encoder sees exactly WHICH
+                        # region is to be repainted (the RGBA's RGB alone
+                        # looks untouched — the hole lives only in its alpha).
+                        ui_values[f"{prefix}_qwen_image_edit_images"] = [bg]
+                    else:
+                        ui_values[f"{prefix}_denoise"] = params.get("denoise", 1.0)
                 elif task_type == "outpaint":
                     ui_values[f"{prefix}_input_image"] = pil_img
                     ui_values[f"{prefix}_pad_left"] = params.get("pad_left", 0)
