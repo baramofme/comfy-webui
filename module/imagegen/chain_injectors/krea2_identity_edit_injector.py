@@ -1,3 +1,8 @@
+try:
+    from utils.app_utils import ensure_file_downloaded
+except ImportError:
+    ensure_file_downloaded = None
+
 def create_node(assembler, class_type, title=None):
     try:
         node = assembler._get_node_template_from_api(class_type)
@@ -34,6 +39,11 @@ def inject(assembler, chain_definition, chain_items):
     valid_images = valid_images[:2]
 
     lora_filename = "krea2_identity_edit_v1_2.safetensors"
+    if ensure_file_downloaded:
+        try:
+            ensure_file_downloaded(lora_filename)
+        except Exception as e:
+            print(f"Warning: Failed to ensure '{lora_filename}' downloaded: {e}")
 
     ksampler_name = chain_definition.get('ksampler_node', 'ksampler')
     pos_prompt_name = chain_definition.get('pos_prompt_node', 'pos_prompt')
