@@ -29,6 +29,6 @@ def inject(assembler, chain_definition, chain_items):
         assembler.workflow[comp_id] = comp_node
 
         minimax_h3_node['inputs'][f"ref_videos.ref_video_{idx}"] = [comp_id, 0]
-        minimax_h3_node['inputs'][f"ref_audio.ref_audio_{idx}"] = [comp_id, 1]
+        minimax_h3_node['inputs'][f"ref_video_audios.ref_video_audio_{idx}"] = [comp_id, 1]
 
     print(f"[H3 RefVideo Injector] Successfully injected {len(valid_videos)} reference video(s).")

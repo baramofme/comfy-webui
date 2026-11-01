@@ -21,6 +21,6 @@ def inject(assembler, chain_definition, chain_items):
         load_aud_node['inputs']['audio'] = aud_file
         assembler.workflow[load_aud_id] = load_aud_node
 
-        minimax_h3_node['inputs'][f"ref_audio.ref_audio_{idx}"] = [load_aud_id, 0]
+        minimax_h3_node['inputs'][f"ref_audios.ref_audio_{idx}"] = [load_aud_id, 0]
 
     print(f"[H3 RefAudio Injector] Successfully injected {len(valid_audios)} reference audio(s).")
