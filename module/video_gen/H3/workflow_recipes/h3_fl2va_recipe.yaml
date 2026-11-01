@@ -3,7 +3,7 @@ nodes:
     class_type: UNETLoader
     title: "Load Diffusion Model"
     params:
-      unet_name: "minimax_h3_fl2va_pruned_nvfp4.safetensors"
+      unet_name: "Minimax-h3_Singularity_ref2va_Pruned_v1.3_int8.safetensors"
       weight_dtype: "default"
   clip_loader:
     class_type: CLIPLoader
@@ -16,7 +16,7 @@ nodes:
     class_type: VAELoader
     title: "Load Video VAE"
     params:
-      vae_name: "minimax_h3_video_vae_fp16.safetensors"
+      vae_name: "minimax_h3_video_vae_int8_convrot.safetensors"
   audio_vae_loader:
     class_type: VAELoader
     title: "Load Audio VAE"
@@ -56,7 +56,7 @@ nodes:
     class_type: VAEDecode
     title: "VAE Decode"
   vae_decode_audio:
-    class_type: VAEDecodeAudio
+    class_type: "{{ h3_audio_decode_class }}"
     title: "VAE Decode Audio"
   create_video:
     class_type: CreateVideo
@@ -189,6 +189,7 @@ ui_map:
   length: "minimax_h3:length"
   seed: "random_noise:noise_seed"
   filename_prefix: "save_video:filename_prefix"
+  save_format: "save_video:format"
   first_frame_image: "first_frame_loader:image"
   last_frame_image: "last_frame_loader:image"
   steps: "basic_scheduler:steps"

@@ -22,13 +22,14 @@ Checkpoints:
     models:
       - display_name: "Krea-2-Turbo"
         components:
-          unet: "krea2_turbo_nvfp4.safetensors"
+          unet: "krea2_turbo_int8_convrot.safetensors"
           clip: "qwen3vl_4b_fp8_scaled.safetensors"
           vae: "qwen_image_vae.safetensors"
       - display_name: "Krea-2-Raw"
         components:
-          unet: "krea2_raw_fp8_scaled.safetensors"
+          unet: "krea2_turbo_convrot_int4_fast.safetensors"
           clip: "qwen3vl_4b_fp8_scaled.safetensors"
+          vae: "qwen_image_vae.safetensors"
   MOSS-Image:
     latent_type: flux2_latent
     models:

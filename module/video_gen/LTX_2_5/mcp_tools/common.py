@@ -216,6 +216,8 @@ _COMMON_OPTIONAL_INPUTS = [
     "use_spatial_upscaler",
     "use_temporal_upscaler",
     "loras",
+    "output_format",
+    "generate_audio",
     "async_execution",
 ]
 
@@ -274,6 +276,17 @@ _GLOBAL_OPTIONAL_INPUTS_SCHEMA = {
     "loras": {
         "type": "array",
         "description": "List of LoRA objects, e.g. [{'source': 'Hugging Face', 'id_or_url': 'repo/lora.safetensors', 'scale': 1.0}].",
+    },
+    "output_format": {
+        "type": "string",
+        "enum": ["mp4", "mkv", "webm"],
+        "description": "Container the finished video is written into (default: mp4).",
+        "default": "mp4"
+    },
+    "generate_audio": {
+        "type": "boolean",
+        "description": "Decode the generated audio track into the output file. False writes a silent video (default: True).",
+        "default": True
     },
     "async_execution": {
         "type": "boolean",
@@ -405,6 +418,13 @@ def _execute_ltx2_5_pipeline(task_id: str, params: dict, request: Any = None):
         use_spatial = bool(params.get("use_spatial_upscaler", False))
         use_temporal = bool(params.get("use_temporal_upscaler", False))
 
+        # Composer chips (OpenHiggsfield): output container and audio presence.
+        # Anything outside SaveVideo's container enum falls back to mp4.
+        output_format = str(params.get("output_format") or "mp4").lower()
+        if output_format not in ("mp4", "mkv", "webm"):
+            output_format = "mp4"
+        generate_audio = bool(params.get("generate_audio", True))
+
         loras_param = params.get("loras")
         loras_list = loras_param if isinstance(loras_param, list) else []
 
@@ -421,6 +441,13 @@ def _execute_ltx2_5_pipeline(task_id: str, params: dict, request: Any = None):
             "use_spatial_upscaler": use_spatial,
             "use_temporal_upscaler": use_temporal,
             "loras": loras_list,
+            # Container chip: the recipe maps save_format to SaveVideo's format
+            # input, so the chosen container is what lands on disk.
+            "save_format": output_format,
+            # Audio chip: a None class makes the assembler skip the audio
+            # decoder node, which drops the connection into CreateVideo —
+            # the file is written without an audio stream.
+            "audio_decoder_class": "LTXVAudioVAEDecode" if generate_audio else None,
         }
 
         if params.get("width") and params.get("height"):

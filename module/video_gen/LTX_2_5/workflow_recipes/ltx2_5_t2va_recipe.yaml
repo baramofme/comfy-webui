@@ -81,7 +81,7 @@ nodes:
       temporal_size: 64
       temporal_overlap: 16
   audio_decoder:
-    class_type: LTXVAudioVAEDecode
+    class_type: "{{ audio_decoder_class }}"
     title: "Audio VAE Decode"
   create_video:
     class_type: CreateVideo
@@ -179,3 +179,4 @@ ui_map:
     - "create_video:fps"
   seed: "noise_gen:noise_seed"
   filename_prefix: "save_video:filename_prefix"
+  save_format: "save_video:format"

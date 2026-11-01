@@ -36,6 +36,8 @@ def VideoGen_H3_run(params: dict, request: gr.Request = None) -> dict:
     - h3_guides (list[dict]): List of keyframe guide configurations (e.g., [{"image": "https://.../keyframe.png", "time_seconds": 1.5}]).
     - control_video (str): Single convenience control video URL/path/base64 for H3 ControlNet.
     - control_strength (float): Strength for single convenience control video (default: 1.0).
+    - output_format (str): Output container: "mp4", "mkv", or "webm" (default: "mp4").
+    - generate_audio (bool): Decode the generated audio into the file; False writes a silent video (default: True).
 
     [Example (t2va)]
     {

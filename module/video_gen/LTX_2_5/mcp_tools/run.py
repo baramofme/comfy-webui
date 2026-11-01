@@ -40,6 +40,8 @@ def VideoGen_LTX_2_5_run(params: dict, request: gr.Request = None) -> dict:
     - use_spatial_upscaler (bool): Enable 2x spatial latent upscaler (default: False).
     - use_temporal_upscaler (bool): Enable 2x temporal latent upscaler (default: False).
     - loras (list[dict]): List of LoRA configurations (e.g., [{"source": "Hugging Face", "id_or_url": "repo/lora.safetensors", "scale": 1.0}]).
+    - output_format (str): Output container: "mp4", "mkv", or "webm" (default: "mp4").
+    - generate_audio (bool): Decode the generated audio into the file; False writes a silent video (default: True).
     - async_execution (bool): If True, returns immediately with task_id for polling via VideoGen_LTX_2_5_get_task_status. Default: False.
 
     [Example (t2va)]

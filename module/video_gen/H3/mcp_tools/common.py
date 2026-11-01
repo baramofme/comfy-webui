@@ -242,11 +242,22 @@ _GLOBAL_OPTIONAL_INPUTS_SCHEMA = {
         "type": "array",
         "description": "List of MiniMax H3 timeline Keyframe Guide configurations. E.g., [{'image': 'https://example.com/frame.png', 'time_seconds': 1.5}].",
         "items": {"type": "object"}
+    },
+    "output_format": {
+        "type": "string",
+        "enum": ["mp4", "mkv", "webm"],
+        "description": "Container the finished video is written into (default: mp4).",
+        "default": "mp4"
+    },
+    "generate_audio": {
+        "type": "boolean",
+        "description": "Decode the generated audio track into the output file. False writes a silent video (default: True).",
+        "default": True
     }
 }
 
 _COMMON_OPTIONAL_INPUTS = [
-    "seed", "steps", "cfg", "flow_shift", "loras", "h3_controlnets", "control_video", "control_strength", "controlnet_type", "h3_guides"
+    "seed", "steps", "cfg", "flow_shift", "loras", "h3_controlnets", "control_video", "control_strength", "controlnet_type", "h3_guides", "output_format", "generate_audio"
 ]
 
 _TASK_DEFINITIONS = [
@@ -361,6 +372,13 @@ def _execute_h3_pipeline(task_id: str, params: dict, request: Any = None):
         cfg = float(params.get("cfg", 6.0))
         flow_shift = float(params.get("flow_shift", 3.0))
 
+        # Composer chips (OpenHiggsfield): output container and audio presence.
+        # Anything outside SaveVideo's container enum falls back to mp4.
+        output_format = str(params.get("output_format") or "mp4").lower()
+        if output_format not in ("mp4", "mkv", "webm"):
+            output_format = "mp4"
+        generate_audio = bool(params.get("generate_audio", True))
+
         # LoRA parsing
         loras_param = params.get("loras")
         loras_list = loras_param if isinstance(loras_param, list) else []
@@ -420,6 +438,13 @@ def _execute_h3_pipeline(task_id: str, params: dict, request: Any = None):
             "loras": loras_list,
             "h3_controlnets": parsed_cns,
             "h3_guides": parsed_guides,
+            # Container chip: the recipe maps save_format to SaveVideo's format
+            # input, so the chosen container is what lands on disk.
+            "save_format": output_format,
+            # Audio chip: a None class makes the assembler skip the audio
+            # decoder node, which drops the connection into CreateVideo —
+            # the file is written without an audio stream.
+            "h3_audio_decode_class": "VAEDecodeAudio" if generate_audio else None,
         }
 
         # Handle task specific inputs

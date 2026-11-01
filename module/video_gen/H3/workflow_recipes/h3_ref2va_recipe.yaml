@@ -57,7 +57,7 @@ nodes:
     class_type: VAEDecode
     title: "VAE Decode"
   vae_decode_audio:
-    class_type: VAEDecodeAudio
+    class_type: "{{ h3_audio_decode_class }}"
     title: "VAE Decode Audio"
   create_video:
     class_type: CreateVideo
@@ -167,4 +167,5 @@ ui_map:
   length: "minimax_h3:length"
   seed: "random_noise:noise_seed"
   filename_prefix: "save_video:filename_prefix"
+  save_format: "save_video:format"
   steps: "basic_scheduler:steps"

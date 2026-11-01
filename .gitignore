@@ -25,3 +25,6 @@ Thumbs.db
 
 # Comfy web UI
 output/
+
+# Runtime logs
+run.log
