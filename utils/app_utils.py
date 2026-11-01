@@ -63,20 +63,46 @@ _index_cache: dict | None = None
 _index_lock = threading.Lock()
 
 
+# The repository root, derived from this file's own location
+# (``<repo_root>/utils/app_utils.py``). This is a reliable anchor even when the
+# app root was never explicitly set (a bare test run, a different entry point,
+# or a launch from another working directory).
+_PKG_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def _roots_to_scan() -> list[str]:
+    """Host app root plus this package's repo root, de-duplicated."""
+    roots: list[str] = []
+    seen: set[str] = set()
+    for candidate in (get_app_root(), _PKG_ROOT):
+        resolved = os.path.realpath(candidate)
+        if resolved and resolved not in seen:
+            seen.add(resolved)
+            roots.append(resolved)
+    return roots
+
+
 def _candidate_manifest_paths() -> list[str]:
     """Every ``file_list.yaml`` this checkout exposes, global-first."""
-    root = get_app_root()
     candidates: list[str] = []
+    seen: set[str] = set()
 
-    global_path = os.path.join(root, "yaml", "file_list.yaml")
-    if os.path.isfile(global_path):
-        candidates.append(global_path)
+    def _add(path: str) -> None:
+        resolved = os.path.realpath(path)
+        if resolved not in seen:
+            seen.add(resolved)
+            candidates.append(path)
 
-    module_dir = os.path.join(root, "module")
-    if os.path.isdir(module_dir):
-        for current_root, _dirs, files in os.walk(module_dir):
-            if "file_list.yaml" in files:
-                candidates.append(os.path.join(current_root, "file_list.yaml"))
+    for root in _roots_to_scan():
+        global_path = os.path.join(root, "yaml", "file_list.yaml")
+        if os.path.isfile(global_path):
+            _add(global_path)
+
+        module_dir = os.path.join(root, "module")
+        if os.path.isdir(module_dir):
+            for current_root, _dirs, files in os.walk(module_dir):
+                if "file_list.yaml" in files:
+                    _add(os.path.join(current_root, "file_list.yaml"))
 
     return candidates
 
