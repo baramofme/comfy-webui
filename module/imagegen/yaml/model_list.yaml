@@ -270,7 +270,7 @@ Checkpoints:
           clip: "qwen_2.5_vl_7b_nvfp4.safetensors"
       - display_name: "Qwen-Image-Edit-2511"
         components:
-          unet: "qwen_edit_2511_int4_tensorwise_mixed.safetensors"
+          unet: "qwen_image_edit_2511_int8_convrot.safetensors"
           vae: "qwen_image_vae.safetensors"
           clip: "qwen_2.5_vl_7b_fp8_scaled.safetensors"
       - display_name: "Qwen-Image-Edit-2509"
