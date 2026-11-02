@@ -16,8 +16,8 @@ present on the chain item:
 
   * krea2_anygles  (requires a source image: re-renders the subject at a new
       camera angle; meaningful for img2img / reference-image runs)
-      Krea2AnyblesLoadLoRA -> Krea2AnyblesCamera -> Krea2AnyblesEncode ->
-      Krea2AnyblesModelPatch. The patched MODEL replaces the sampler model and
+      Krea2AnyglesLoadLoRA -> Krea2AnyglesCamera -> Krea2AnyglesEncode ->
+      Krea2AnyglesModelPatch. The patched MODEL replaces the sampler model and
       the anygles positive conditioning is combined with the existing positive.
 
 When neither sub-path's inputs are present (the default request shape), the
@@ -154,8 +154,8 @@ def _inject_krea2_anygles(assembler, chain_definition, ag, source_ref):
 
     # 1. Projector LoRA -> model + anygles_projection
     lora_id = assembler._get_unique_id()
-    lora_node = create_node(assembler, "Krea2AnyblesLoadLoRA",
-                            "Load LoRA (Anybles Projector)")
+    lora_node = create_node(assembler, "Krea2AnyglesLoadLoRA",
+                            "Load LoRA (Anygles Projector)")
     lora_node['inputs']['model'] = current_model_connection
     lora_node['inputs']['lora_name'] = projector_lora
     lora_node['inputs']['strength'] = float(ag.get('strength',
@@ -164,8 +164,8 @@ def _inject_krea2_anygles(assembler, chain_definition, ag, source_ref):
 
     # 2. Camera (source image -> re-projected normal + camera prompt)
     camera_id = assembler._get_unique_id()
-    camera_node = create_node(assembler, "Krea2AnyblesCamera",
-                              "Krea2 Anybles Camera")
+    camera_node = create_node(assembler, "Krea2AnyglesCamera",
+                              "Krea2 Anygles Camera")
     camera_node['inputs']['source'] = source_ref
     camera_node['inputs']['yaw'] = float(ag.get('yaw', 50.0))
     camera_node['inputs']['elevation'] = float(ag.get('elevation', 0.0))
@@ -181,8 +181,8 @@ def _inject_krea2_anygles(assembler, chain_definition, ag, source_ref):
         chain_definition.get('pos_prompt_node', 'pos_prompt'))
 
     encode_id = assembler._get_unique_id()
-    encode_node = create_node(assembler, "Krea2AnyblesEncode",
-                              "Krea2 Anybles Encode")
+    encode_node = create_node(assembler, "Krea2AnyglesEncode",
+                              "Krea2 Anygles Encode")
     if clip_connection:
         encode_node['inputs']['clip'] = clip_connection
     if vae_connection:
@@ -200,8 +200,8 @@ def _inject_krea2_anygles(assembler, chain_definition, ag, source_ref):
 
     # 4. Model patch -> patched MODEL
     patch_id = assembler._get_unique_id()
-    patch_node = create_node(assembler, "Krea2AnyblesModelPatch",
-                             "Krea2 Anybles Model Patch")
+    patch_node = create_node(assembler, "Krea2AnyglesModelPatch",
+                             "Krea2 Anygles Model Patch")
     patch_node['inputs']['model'] = [lora_id, 0]
     patch_node['inputs']['anygles_control'] = [encode_id, 1]
     patch_node['inputs']['anygles_projection'] = [lora_id, 1]
@@ -258,11 +258,11 @@ def inject(assembler, chain_definition, chain_items):
             # LoadImage node feeding the camera's source input.
             load_id = source_ref[0]
             load_node = create_node(assembler, "LoadImage",
-                                    "Load Image (Anybles Source)")
+                                    "Load Image (Anygles Source)")
             load_node['inputs']['image'] = source_filename
             assembler.workflow[load_id] = load_node
             source_ref = [load_id, 0]
-            model_ref, positive_ref = _inject_krea2_anybles(
+            model_ref, positive_ref = _inject_krea2_anygles(
                 assembler, chain_definition, ag, source_ref)
             if model_ref:
                 model_ref_override = model_ref
