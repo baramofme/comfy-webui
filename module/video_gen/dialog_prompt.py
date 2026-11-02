@@ -43,6 +43,9 @@ LTX_SPEECH_CUE = 'The character says, "{text}".'
 H3_DIALOGUE_OPEN = "<d>"
 H3_DIALOGUE_CLOSE = "</d>"
 
+# Sentinel returned for an escaped line (`\#`): kept as visual text, backslash removed.
+ESCAPE = object()
+
 _TRAILING_SPEECH_PUNCT = ".!?"
 
 
@@ -62,7 +65,7 @@ def dialogue_line_content(line: str):
         return None
     # escape hatch: literal hash in the visual prompt
     if stripped.startswith("\\#"):
-        return None
+        return ESCAPE
     if not stripped.startswith(DIALOG_PREFIX):
         return None
     after = stripped[len(DIALOG_PREFIX):]
@@ -118,6 +121,10 @@ def apply_dialog_prefixes(prompt: str, target: str = "h3") -> str:
     out = []
     for line in lines:
         content = dialogue_line_content(line)
+        if content is ESCAPE:
+            # escaped literal hash: keep the text, drop the backslash
+            out.append(line.replace("\\#", "#", 1))
+            continue
         if content is None:
             out.append(line)
             continue

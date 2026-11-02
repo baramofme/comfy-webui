@@ -38,7 +38,7 @@ def create_ui():
                 components['i2va_start_image'] = gr.Image(type="pil", label="Start Image", height=294, visible=False)
                 components['ta2va_audio_file'] = gr.Audio(type="filepath", label="Input Audio", visible=False)
             with gr.Column(scale=2):
-                components['side_positive_prompt'] = gr.Textbox(label="Prompt", lines=4, placeholder="Describe the scene, motion, and action...")
+                components['side_positive_prompt'] = gr.Textbox(label="Prompt", lines=4, placeholder="Describe the scene, motion, and action. Lines starting with # become spoken dialogue.")
                 components['side_negative_prompt'] = gr.Textbox(label="Negative Prompt", lines=4, value=DEFAULT_NEG_PROMPT)
         components['side_container'] = side_container
 
