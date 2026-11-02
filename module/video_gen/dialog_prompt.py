@@ -57,7 +57,7 @@ _HEX_COLOR_RE = re.compile(r"[0-9a-fA-F]{3,8}$")
 
 
 def dialogue_line_content(line: str):
-    """Return the dialogue text of `line` if it is a `#` dialogue line, else None.
+    r"""Return the dialogue text of `line` if it is a `#` dialogue line, else None.
 
     Rules (single choke point for the convention):
       - Trigger: the line's first non-whitespace character is exactly one `#`.
