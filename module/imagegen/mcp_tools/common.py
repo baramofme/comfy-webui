@@ -137,6 +137,74 @@ def _parse_image_param(image_param: Any) -> Any:
     )
 
 
+def _apply_multiangle_ui_values(ui_values: dict, prefix: str, src: Any) -> None:
+    """Map a multi-angle node-input dict into the `{prefix}_multiangle_*`
+    ui_values keys the multiangle injector consumes.
+
+    Tolerant of both the long names (horizontal_angle/vertical_angle) and the
+    short names (h/v/z) the OH angle layer may use, and of the anygles camera
+    prompt arriving under either `extra_prompt` or `camera_prompt`. A `source`
+    (URL / data URI / PIL / path) is parsed into a PIL image so the anygles
+    camera can re-project it. Absent fields are simply not written, so an
+    ordinary request stays untouched (zero regression).
+    """
+    if not isinstance(src, dict):
+        return
+    key = lambda name: f"{prefix}_{name}"
+
+    qwm = src.get("qwenmultiangle") or src.get("multiangle") or src
+    # Only treat as qwenmultiangle source when it actually carries angle keys.
+    def _pick(d, *names):
+        for n in names:
+            if d.get(n) is not None and d.get(n) != "":
+                return d.get(n)
+        return None
+
+    if isinstance(qwm, dict):
+        h = _pick(qwm, "horizontal_angle", "h", "horizontal", "azimuth")
+        v = _pick(qwm, "vertical_angle", "v", "vertical", "elevation_angle")
+        z = _pick(qwm, "zoom", "z", "distance_zoom")
+        if h is not None:
+            ui_values[key("multiangle_qwm_h")] = h
+        if v is not None:
+            ui_values[key("multiangle_qwm_v")] = v
+        if z is not None:
+            ui_values[key("multiangle_qwm_z")] = z
+        img = qwm.get("image")
+        if img is not None:
+            parsed = _parse_image_param(img) if isinstance(img, str) else img
+            if parsed is not None:
+                ui_values[key("multiangle_qwm_image")] = parsed
+
+    ag = src.get("krea2_anygles") or src.get("anygles")
+    # A flat anygles dict (yaw/elevation/distance directly on src) is also
+    # accepted -- e.g. a combined "multiangle" chain item that carries the
+    # anygles axis inline rather than nested.
+    if ag is None and any(src.get(n) is not None for n in ("yaw", "elevation", "distance")):
+        ag = src
+    if isinstance(ag, dict):
+        yaw = _pick(ag, "yaw", "horizontal_angle_ag")
+        elev = _pick(ag, "elevation", "vertical_angle_ag")
+        dist = _pick(ag, "distance", "dist")
+        extra = _pick(ag, "extra_prompt", "camera_prompt", "extra")
+        strength = _pick(ag, "strength")
+        if yaw is not None:
+            ui_values[key("multiangle_ag_yaw")] = yaw
+        if elev is not None:
+            ui_values[key("multiangle_ag_elevation")] = elev
+        if dist is not None:
+            ui_values[key("multiangle_ag_distance")] = dist
+        if extra:
+            ui_values[key("multiangle_ag_extra_prompt")] = str(extra)
+        if strength is not None:
+            ui_values[key("multiangle_ag_strength")] = strength
+        source = ag.get("source")
+        if source is not None:
+            parsed = _parse_image_param(source) if isinstance(source, str) else source
+            if parsed is not None:
+                ui_values[key("multiangle_source")] = parsed
+
+
 def _load_yaml(filepath: str) -> dict:
     """Safely load a YAML file, returning an empty dict if the file does not exist."""
     if not os.path.exists(filepath):

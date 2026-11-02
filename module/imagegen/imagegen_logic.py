@@ -175,6 +175,7 @@ def process_inputs(task_type: str, ui_values: dict, seed_override=None, prefix: 
         'flux3_prompt_upsampler_chain': process_flux3_prompt_upsampler_inputs(ui_values, prefix),
         'moss_image_control_chain': process_moss_image_control_inputs(ui_values, prefix),
         'moss_image_edit_chain': process_moss_image_edit_inputs(ui_values, prefix),
+        'multiangle_chain': process_multiangle_inputs(ui_values, prefix),
     }
 
     final_values_for_assembler = {**vals, **processed_chains}
