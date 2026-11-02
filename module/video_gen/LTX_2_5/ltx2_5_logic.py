@@ -2,6 +2,7 @@ import os
 from comfy_webui_core.workflow_assembler import WorkflowAssembler
 from comfy_webui_core.utils import get_filename_prefix, handle_seed, save_temp_image, save_temp_audio
 from comfy_webui_core.input_processors import process_lora_inputs
+from module.video_gen.dialog_prompt import apply_dialog_prefixes
 
 MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
 RECIPES_DIR = os.path.join(MODULE_DIR, "workflow_recipes")
@@ -93,6 +94,13 @@ def process_inputs(ui_values, seed_override=None):
         neg_prompt = local_ui_values.get('full_negative_prompt') or local_ui_values.get('side_negative_prompt') or local_ui_values.get('negative_prompt') or "pc game, console game, video game, cartoon, childish, ugly"
     local_ui_values['positive_prompt'] = pos_prompt
     local_ui_values['negative_prompt'] = neg_prompt
+
+    # `#` dialogue prefix -> LTX quoted-speech cue, in place. LTX has no separate
+    # audio text channel: the audio latents are conditioned by this same positive
+    # prompt, so weaving quoted dialogue here IS the audio routing. Negative prompt
+    # is left untouched. No `#` lines => byte-identical.
+    local_ui_values['positive_prompt'] = apply_dialog_prefixes(
+        local_ui_values['positive_prompt'], 'ltx')
 
     start_img = local_ui_values.get('i2va_start_image') or local_ui_values.get('stacked_start_image') or local_ui_values.get('start_image')
     end_img = local_ui_values.get('stacked_end_image') or local_ui_values.get('end_image')

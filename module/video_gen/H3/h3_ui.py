@@ -34,7 +34,7 @@ def create_ui():
             components['last_frame'] = gr.Image(type="pil", label="Last Frame", height=220, visible=False)
         components['frame_row'] = frame_row
 
-        components['prompt'] = gr.Textbox(label="Prompt", lines=5)
+        components['prompt'] = gr.Textbox(label="Prompt", lines=5, placeholder="Describe the scene, motion, and action. Lines starting with # become spoken dialogue.")
 
         with gr.Row():
             with gr.Column(scale=1):
