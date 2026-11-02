@@ -99,7 +99,12 @@ class TestLTXFormat(unittest.TestCase):
 
     def test_already_quoted_not_double_wrapped(self):
         out = apply_dialog_prefixes('# "I am ready"', "ltx")
-        self.assertEqual(out, 'The character says, "I am ready".')
+        self.assertEqual(out, 'The character says, "I am ready."')
+
+    def test_hex_color_start_stays_visual(self):
+        src = "#ff0000\n# real dialogue"
+        out = apply_dialog_prefixes(src, "h3")
+        self.assertEqual(out, "#ff0000\n<d>real dialogue</d>")
 
     def test_visual_prompt_untouched(self):
         src = "A medium shot of a baker.\n# First batch of the morning.\nSteam rises."
