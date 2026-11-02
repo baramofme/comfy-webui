@@ -1,4 +1,4 @@
-"""`#` dialogue-prefix preprocessing (ported from ComfyUI-MiniMaxH3-Easy).
+r"""`#` dialogue-prefix preprocessing (ported from ComfyUI-MiniMaxH3-Easy).
 
 Source mechanism (nkxx188/ComfyUI-MiniMaxH3-Easy, 2026-11-03 clone):
   - The `#` key in the rich prompt editor is a *frontend shortcut*: it inserts a
@@ -64,7 +64,7 @@ def dialogue_line_content(line: str):
         `##...` (markdown-style) and mid-line `#` (hashtags, hex colors) are NOT
         dialogue — left untouched. A bare hex color token (`#ff0000`) is also
         treated as visual text so color words in the prompt never become dialogue.
-      - Escape: a line starting with `\\#` (backslash-hash after optional indent)
+      - Escape: a line starting with `\#` (backslash-hash after optional indent)
         is a literal `#` in the visual prompt; the backslash is consumed.
       - A bare `#` line with no content is dropped entirely.
     """
