@@ -418,6 +418,13 @@ def _execute_imagegen_pipeline(task_id: str, params: dict):
                     ui_values[f"{prefix}_pad_bottom"] = params.get("pad_bottom", 0)
                     ui_values[f"{prefix}_feathering"] = params.get("feathering", 10)
 
+        # Multi-angle node inputs (ADDITIVE): a top-level `node_inputs` body
+        # param carrying qwenmultiangle / krea2_anygles numeric axes, OR the
+        # equivalent `chain` entries handled further below. Absent -> untouched.
+        node_inputs = params.get("node_inputs")
+        if node_inputs:
+            _apply_multiangle_ui_values(ui_values, prefix, node_inputs)
+
         chain = params.get("chain", [])
         if chain:
             for item in chain:
@@ -600,7 +607,14 @@ def _execute_imagegen_pipeline(task_id: str, params: dict):
                     ui_values[f"{prefix}_flux3_prompt_upsampler_max_length"] = int(item.get("max_length", 3584))
                     if "system_prompt" in item:
                         ui_values[f"{prefix}_flux3_prompt_upsampler_system_prompt"] = str(item["system_prompt"])
-
+                elif itype in ("qwenmultiangle", "krea2_anygles", "multiangle"):
+                    # Wrap so a flat item (angles inline) maps deterministically.
+                    if itype == "qwenmultiangle":
+                        _apply_multiangle_ui_values(ui_values, prefix, {"qwenmultiangle": item})
+                    elif itype == "krea2_anygles":
+                        _apply_multiangle_ui_values(ui_values, prefix, {"krea2_anygles": item})
+                    else:  # "multiangle": may carry nested qwenmultiangle / krea2_anygles
+                        _apply_multiangle_ui_values(ui_values, prefix, item)
 
 
             # Auto set default IPAdapter final settings if IPAdapter images are present
