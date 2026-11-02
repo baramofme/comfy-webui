@@ -142,7 +142,7 @@ def _inject_krea2_anygles(assembler, chain_definition, ag, source_ref):
     conditioning connection, both meant to replace/augment the sampler inputs."""
     projector_lora = chain_definition.get(
         'anygles_projector_lora',
-        "Krea-2-Turbo-Projector-Scale-LoRA-Diffusers.safetensors")
+        "krea2_anygles_rank32.safetensors")
     sam3d_checkpoint = chain_definition.get('anygles_sam3d_checkpoint', 'model.ckpt')
 
     ksampler_name = chain_definition.get('ksampler_node', 'ksampler')
