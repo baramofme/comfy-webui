@@ -217,6 +217,7 @@ def _load_yaml(filepath: str) -> dict:
 _COMMON_OPTIONAL_INPUTS = [
     "steps", "cfg", "sampler", "scheduler", "seed",
     "negative_prompt", "batch_size", "chain", "async_execution",
+    "node_inputs",
 ]
 
 _TASK_DEFINITIONS = [

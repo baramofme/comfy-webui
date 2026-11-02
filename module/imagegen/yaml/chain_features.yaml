@@ -574,4 +574,60 @@ moss_image_edit:
         description: "List of 1 to 10 reference images encoded as Base64 Data URI, HTTP/HTTPS URL, or local file path."
 
 
+multiangle:
+  chains: multiangle
+  display_name: "Multi-Angle Camera Conditioning (qwenmultiangle / krea2-anygles)"
+  description: "ADDITIVE camera-angle conditioning for krea-2, complementary to the text prompt path. The qwenmultiangle sub-path (no source image required) routes a numeric camera pose (horizontal_angle/vertical_angle/zoom) through a camera->translate->CLIP conditioning that is COMBINED with the existing positive prompt. The krea2_anygles sub-path re-renders a SOURCE IMAGE at a new camera angle (yaw/elevation/distance) via the projector LoRA + SAM 3D Body, patching the sampler model. When no node inputs are supplied the graph is identical to a normal run (no regression)."
+  max_count: 1
+  usage_guideline: "Send either a top-level body param `node_inputs={qwenmultiangle:{horizontal_angle,vertical_angle,zoom},krea2_anygles:{yaw,elevation,distance,extra_prompt,source?}}` or `chain` entries with injector_type 'qwenmultiangle'/'krea2_anygles'. The krea2_anygles sub-path needs a `source` image (URL/data URI/path) -- it is skipped when no source is present. The text prompt path always stays the primary channel."
+  parameters_schema:
+    type: object
+    properties:
+      qwenmultiangle:
+        type: object
+        description: "Numeric camera pose for the qwenmultiangle camera node (no source image needed)."
+        properties:
+          horizontal_angle:
+            type: integer
+            minimum: 0
+            maximum: 360
+            description: "Camera azimuth (0-360 degrees)."
+          vertical_angle:
+            type: integer
+            minimum: -30
+            maximum: 60
+            description: "Camera elevation (-30 to 60 degrees)."
+          zoom:
+            type: number
+            minimum: 0
+            maximum: 10
+            description: "Camera distance (0=wide, 10=close-up)."
+      krea2_anygles:
+        type: object
+        description: "Numeric camera pose + source image for the krea2-anygles re-projection chain."
+        properties:
+          yaw:
+            type: number
+            minimum: -180
+            maximum: 180
+            description: "Yaw (-180 to 180 degrees)."
+          elevation:
+            type: number
+            minimum: -60
+            maximum: 60
+            description: "Elevation (-60 to 60 degrees)."
+          distance:
+            type: number
+            minimum: 0.6
+            maximum: 1.8
+            description: "Distance (0.6 to 1.8)."
+          extra_prompt:
+            type: string
+            description: "Optional English angle tokens / camera prompt fragment."
+          source:
+            type: string
+            description: "REQUIRED for the anygles sub-path: source image to re-project (Base64 Data URI, HTTP/HTTPS URL, or local path). When absent, the anygles sub-path is skipped."
+    required: []
+
+
 
