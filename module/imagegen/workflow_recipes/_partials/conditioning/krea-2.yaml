@@ -80,6 +80,21 @@ dynamic_pid_chains:
   pid_chain:
     ksampler_node: "ksampler"
 
+dynamic_multiangle_chains:
+  multiangle_chain:
+    ksampler_node: "ksampler"
+    pos_prompt_node: "pos_prompt"
+    neg_prompt_node: "neg_prompt"
+    clip_source: "clip_loader:0"
+    vae_source: "vae_loader:0"
+    qwenmultiangle_default_language: "English"
+    anygles_projector_lora: "Krea-2-Turbo-Projector-Scale-LoRA-Diffusers.safetensors"
+    anygles_default_strength: 1.0
+    anygles_sam3d_checkpoint: "model.ckpt"
+    anygles_reference_max_edge: 384
+    anygles_vlm_reference: true
+    anygles_kv_cache: true
+
 ui_map:
   positive_prompt: "pos_prompt:text"
   negative_prompt: "neg_prompt:text"

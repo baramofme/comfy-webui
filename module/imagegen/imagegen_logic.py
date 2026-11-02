@@ -29,7 +29,8 @@ from .input_processors import (
     process_ming_image_prompt_enhancer_inputs,
     process_flux3_prompt_upsampler_inputs,
     process_moss_image_control_inputs,
-    process_moss_image_edit_inputs
+    process_moss_image_edit_inputs,
+    process_multiangle_inputs
 )
 from .shared.config_loader import load_ipadapter_presets
 from .shared.utils import (

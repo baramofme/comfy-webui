@@ -492,6 +492,84 @@ def process_moss_image_edit_inputs(all_ui_values: dict, prefix: str):
     }]
 
 
+def process_multiangle_inputs(all_ui_values: dict, prefix: str):
+    """Translate the request's node-input values into a multi-angle chain item.
+
+    ADDITIVE by design: when NO multi-angle node-input values are present on
+    the request (the default request shape), this returns an empty list, so the
+    injector is never invoked and the generated graph is identical to the
+    pre-existing behaviour (zero regression).
+
+    Reads the `{prefix}_multiangle_*` ui_values keys populated by the MCP /
+    Gradio layer from either a top-level `node_inputs` body param or `chain`
+    entries carrying `injector_type` of qwenmultiangle / krea2_anygles.
+    """
+    key = lambda name: f"{prefix}_{name}"
+
+    def _num(val):
+        if val is None or val == "":
+            return None
+        try:
+            return float(val)
+        except (ValueError, TypeError):
+            return None
+
+    # --- qwenmultiangle axis ---
+    qwm = {}
+    h = _num(all_ui_values.get(key('multiangle_qwm_h')))
+    v = _num(all_ui_values.get(key('multiangle_qwm_v')))
+    z = _num(all_ui_values.get(key('multiangle_qwm_z')))
+    if h is not None:
+        qwm['horizontal_angle'] = int(h)
+    if v is not None:
+        qwm['vertical_angle'] = int(v)
+    if z is not None:
+        qwm['zoom'] = z
+    if qwm:
+        qwm_image = all_ui_values.get(key('multiangle_qwm_image'))
+        if qwm_image is not None:
+            if isinstance(qwm_image, str):
+                qwm['image'] = qwm_image
+            else:
+                qwm['image'] = save_temp_image(qwm_image)
+
+    # --- krea2-anygles axis ---
+    ag = {}
+    yaw = _num(all_ui_values.get(key('multiangle_ag_yaw')))
+    elev = _num(all_ui_values.get(key('multiangle_ag_elevation')))
+    dist = _num(all_ui_values.get(key('multiangle_ag_distance')))
+    if yaw is not None:
+        ag['yaw'] = yaw
+    if elev is not None:
+        ag['elevation'] = elev
+    if dist is not None:
+        ag['distance'] = dist
+    extra = all_ui_values.get(key('multiangle_ag_extra_prompt'))
+    if extra:
+        ag['extra_prompt'] = str(extra)
+    strength = _num(all_ui_values.get(key('multiangle_ag_strength')))
+    if strength is not None:
+        ag['strength'] = strength
+
+    # anygles reprojection needs a source image.
+    source = all_ui_values.get(key('multiangle_source'))
+    if source is not None:
+        if isinstance(source, str):
+            ag['source'] = source
+        else:
+            ag['source'] = save_temp_image(source)
+
+    if not qwm and not ag:
+        return []
+
+    item = {}
+    if qwm:
+        item['qwenmultiangle'] = qwm
+    if ag:
+        item['anygles'] = ag
+    return [item]
+
+
 
 
 

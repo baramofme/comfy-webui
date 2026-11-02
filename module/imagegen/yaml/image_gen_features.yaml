@@ -28,6 +28,7 @@ krea-2:
     - krea2_identity_edit
     - krea2_style_reference
     - pid
+    - multiangle
 
 sensenova-u1.5:
   enabled_chains:
