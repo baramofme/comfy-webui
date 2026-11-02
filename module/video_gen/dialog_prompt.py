@@ -30,8 +30,8 @@ description, and is routed into the target model's audio convention:
     becomes a quoted speech cue sentence placed at its original position — that is
     the audio routing for LTX.
 
-Zero-regression guarantee: a prompt with no `#` dialogue lines is returned
-byte-identical (the original string object itself, CRLF and all).
+Zero-regression guarantee: a prompt with no `#` dialogue lines and no `\#` escapes
+is returned byte-identical (the original string object itself, CRLF and all).
 """
 
 DIALOG_PREFIX = "#"
