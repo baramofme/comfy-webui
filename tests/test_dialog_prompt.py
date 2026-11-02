@@ -38,7 +38,7 @@ class TestParsing(unittest.TestCase):
 
 class TestZeroRegression(unittest.TestCase):
     def test_no_dialogue_returns_same_object(self):
-        p = "a cat runs\r\n#ff0000 wall\r\n"
+        p = "a cat runs\r\ncolor #ff0000 background\r\n"
         out = apply_dialog_prefixes(p, "h3")
         self.assertIs(out, p)          # exact same object, byte-identical
         self.assertEqual(out, p)

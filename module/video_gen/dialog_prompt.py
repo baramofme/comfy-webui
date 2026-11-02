@@ -34,11 +34,13 @@ Zero-regression guarantee: a prompt with no `#` dialogue lines and no `\#` escap
 is returned byte-identical (the original string object itself, CRLF and all).
 """
 
+import re
+
 DIALOG_PREFIX = "#"
 
 # Speech cue template for LTX (no speaker binding available at text level;
 # official guide's phrasing pattern: '<subject> says, "<dialogue>"').
-LTX_SPEECH_CUE = 'The character says, "{text}".'
+LTX_SPEECH_PREFIX = "The character says, "
 
 H3_DIALOGUE_OPEN = "<d>"
 H3_DIALOGUE_CLOSE = "</d>"
@@ -47,15 +49,21 @@ H3_DIALOGUE_CLOSE = "</d>"
 ESCAPE = object()
 
 _TRAILING_SPEECH_PUNCT = ".!?"
+_QUOTE_CHARS_OPEN = '"\u201c'
+_QUOTE_CHARS_CLOSE = '"\u201d'
+
+# A bare hex color token (e.g. '#ff0000') is visual text, not dialogue.
+_HEX_COLOR_RE = re.compile(r"[0-9a-fA-F]{3,8}$")
 
 
 def dialogue_line_content(line: str):
     """Return the dialogue text of `line` if it is a `#` dialogue line, else None.
 
     Rules (single choke point for the convention):
-      - Trigger: the line's first non-whitespace character is exactly one `#`
-        followed by whitespace or end-of-line. `##...` (markdown-style) and
-        mid-line `#` (hashtags, hex colors) are NOT dialogue — left untouched.
+      - Trigger: the line's first non-whitespace character is exactly one `#`.
+        `##...` (markdown-style) and mid-line `#` (hashtags, hex colors) are NOT
+        dialogue — left untouched. A bare hex color token (`#ff0000`) is also
+        treated as visual text so color words in the prompt never become dialogue.
       - Escape: a line starting with `\\#` (backslash-hash after optional indent)
         is a literal `#` in the visual prompt; the backslash is consumed.
       - A bare `#` line with no content is dropped entirely.
@@ -74,20 +82,20 @@ def dialogue_line_content(line: str):
     content = after.strip()
     if not content:
         return ""  # marks an empty dialogue line to drop
+    if _HEX_COLOR_RE.fullmatch(content):
+        return None  # bare hex color token -> visual text, not dialogue
     return content
 
 
 def _speech_cue(text: str) -> str:
     """Format one dialogue segment as an LTX quoted-speech cue sentence."""
     body = text.strip()
-    # Already quoted? keep as-is to avoid double quotes.
-    if len(body) >= 2 and body[0] in "\"“" and body[-1] in "\"”":
-        quoted = body
-    else:
-        if body and body[-1] not in _TRAILING_SPEECH_PUNCT:
-            body = body + "."
-        quoted = '"{}"'.format(body)
-    return LTX_SPEECH_CUE.format(text=quoted)
+    # Already quoted? unwrap it so we never produce doubled quote marks.
+    if len(body) >= 2 and body[0] in _QUOTE_CHARS_OPEN and body[-1] in _QUOTE_CHARS_CLOSE:
+        body = body[1:-1].strip()
+    if body and body[-1] not in _TRAILING_SPEECH_PUNCT:
+        body = body + "."
+    return '{}"{}"'.format(LTX_SPEECH_PREFIX, body)
 
 
 def has_dialogue_lines(prompt: str) -> bool:
