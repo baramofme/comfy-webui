@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "module/video_gen/H3/h3_logic.py": {
-    "mtime": 1793642812.5638654,
-    "ast_hash": "ac7981ed414c578ee63e099430b0b312",
+    "mtime": 1793673162.7821815,
+    "ast_hash": "17c4079996b737d0393cdcd2108eba0d",
     "semantic_hash": ""
   },
   "module/video_gen/H3/h3_mcp.py": {
@@ -835,8 +835,8 @@
     "semantic_hash": ""
   },
   "module/video_gen/LTX_2_5/ltx2_5_logic.py": {
-    "mtime": 1793642821.6636539,
-    "ast_hash": "9180d0fed74b44dac726fd44a1c78b7b",
+    "mtime": 1793673162.9133325,
+    "ast_hash": "f8a984e6400bdc3d2086b2d188fc2c6d",
     "semantic_hash": ""
   },
   "module/video_gen/LTX_2_5/ltx2_5_mcp.py": {
@@ -890,8 +890,8 @@
     "semantic_hash": ""
   },
   "module/video_gen/dialog_prompt.py": {
-    "mtime": 1793643019.4480717,
-    "ast_hash": "052df9e8c00a73ff835a69a6e0c9c607",
+    "mtime": 1793643037.2579794,
+    "ast_hash": "95bcfa0150998c51f860b6d23c08eaad",
     "semantic_hash": ""
   },
   "module/video_gen/hunyuanvideo_1_5/img2video/hunyuanvideo_1_5_img2video_logic.py": {
@@ -2597,6 +2597,16 @@
   "input/temp_image_85644.png": {
     "mtime": 1793579947.7516305,
     "ast_hash": "2338b15a9223f83ea395e6245c0c89fe",
+    "semantic_hash": ""
+  },
+  "module/video_gen/media_ref_prompt.py": {
+    "mtime": 1793673136.6628377,
+    "ast_hash": "27d964abe2d6dff5a0c4c762fb99abe7",
+    "semantic_hash": ""
+  },
+  "tests/test_media_ref_prompt.py": {
+    "mtime": 1793673198.990739,
+    "ast_hash": "9a6782838f164cf67cd3e885dc821de8",
     "semantic_hash": ""
   }
 }
