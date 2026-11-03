@@ -59,7 +59,17 @@ _INDEX_RE = re.compile(
     r"@(?:" + "|".join(_INDEX_TOKEN_ALIASES) + r")\s*(\d+)"
 )
 
+# The index token the dock emits for an attached video (Korean "video N"). Kept in its
+# own regex because the H3 target maps it to <Video N> while the LTX target must leave
+# it untouched (LTX 2.5 has no free-reference stack). `@오디오N` has NO alias list here
+# on purpose -- see the module docstring (audio ordinal mismatch, literal kept).
+_VIDEO_TOKEN_ALIASES = (r"동영상", r"video", r"Video", r"vid")
+_VIDEO_RE = re.compile(
+    r"@(?:" + "|".join(_VIDEO_TOKEN_ALIASES) + r")\s*(\d+)"
+)
+
 H3_PICTURE_OPEN = "<Picture "
+H3_VIDEO_OPEN = "<Video "
 H3_PICTURE_CLOSE = ">"
 
 LTX_START = "the starting frame"
@@ -68,14 +78,41 @@ LTX_REF_PREFIX = "reference frame "
 
 
 def has_reference_tokens(prompt: str) -> bool:
-    """True when the prompt carries at least one `@이미지N` index token."""
+    """True when the prompt carries at least one `@이미지N` / `@동영상N` index token.
+
+    `@오디오N` is deliberately excluded -- it is never transposed (audio ordinal
+    mismatch, see the module docstring), so reporting it as a reference token would
+    invite a rewrite that must not happen.
+    """
     if not isinstance(prompt, str):
         return False
-    return bool(_INDEX_RE.search(prompt))
+    return bool(_INDEX_RE.search(prompt) or _VIDEO_RE.search(prompt))
+
+
+def _resolvable_for_target(prompt: str, target: str) -> bool:
+    """Whether THIS target has at least one token it would actually rewrite.
+
+    h3   -> image tokens or video tokens.
+    ltx  -> image tokens only (video tokens are a no-op on this target).
+    keep -> never rewrites, so nothing is ever resolvable.
+    Any other target returns True so the substitution step raises the unknown-target
+    error instead of silently passing the prompt through.
+    """
+    if target == "h3":
+        return bool(_INDEX_RE.search(prompt) or _VIDEO_RE.search(prompt))
+    if target == "ltx":
+        return bool(_INDEX_RE.search(prompt))
+    if target == "keep":
+        return False
+    return True
 
 
 def _picture_tag(n: int) -> str:
     return "{}{}{}".format(H3_PICTURE_OPEN, n, H3_PICTURE_CLOSE)
+
+
+def _video_tag(n: int) -> str:
+    return "{}{}{}".format(H3_VIDEO_OPEN, n, H3_PICTURE_CLOSE)
 
 
 def _ltx_phrase(n: int) -> str:
@@ -87,24 +124,25 @@ def _ltx_phrase(n: int) -> str:
 
 
 def apply_reference_tokens(prompt: str, target: str = "h3") -> str:
-    """Rewrite `@이미지N` index tokens into the target model's reference convention.
+    """Rewrite `@이미지N` / `@동영상N` index tokens into the target model's reference convention.
 
     target:
-      "h3"  -> `@이미지N` becomes `<Picture N>` in place (H3 picture tag).
+      "h3"  -> `@이미지N` becomes `<Picture N>` in place (H3 picture tag) and
+               `@동영상N` becomes `<Video N>` (H3 video tag; dock numbering and the
+               named-template's `<Video index+1>` agree, so this is a faithful transposition).
       "ltx" -> `@이미지1` -> "the starting frame", `@이미지2` -> "the ending frame",
-               `@이미지N>=3` -> "reference frame N".
-      "keep"-> the `@이미지N` text is left intact (no tag swap).
+               `@이미지N>=3` -> "reference frame N". `@동영상N` is left intact -- LTX 2.5
+               has no free-reference stack, so a video chip has nothing to bind to.
+      "keep"-> the token text is left intact (no tag swap).
 
-    Particles and surrounding text are preserved (only the token is replaced). Prompts
-    without index tokens are returned byte-identical.
+    `@오디오N` is never rewritten on any target (template ordinal mismatch -- literal is
+    the honest carrier). Particles and surrounding text are preserved (only the token is
+    replaced). Prompts without a token this target can resolve are returned byte-identical.
     """
     if not isinstance(prompt, str):
         return prompt
-    if not has_reference_tokens(prompt):
+    if not _resolvable_for_target(prompt, target):
         return prompt  # zero-regression: exact original object
-
-    if target == "keep":
-        return prompt
 
     def _sub(match: "re.Match") -> str:
         n = int(match.group(1))
@@ -114,4 +152,11 @@ def apply_reference_tokens(prompt: str, target: str = "h3") -> str:
             return _ltx_phrase(n)
         raise ValueError("unknown reference target: {!r}".format(target))
 
-    return _INDEX_RE.sub(_sub, prompt)
+    def _video_sub(match: "re.Match") -> str:
+        n = int(match.group(1))
+        return _video_tag(n)
+
+    out = _INDEX_RE.sub(_sub, prompt)
+    if target == "h3":
+        out = _VIDEO_RE.sub(_video_sub, out)
+    return out
