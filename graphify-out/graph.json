@@ -4290,7 +4290,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "module_imagegen_shared_utils_get_model_path",
-      "community": 1,
+      "community": 6,
       "norm_label": "get_model_path()"
     },
     {
@@ -7360,7 +7360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_logic",
-      "community": 106,
+      "community": 5,
       "norm_label": "ltx2_5_logic.py"
     },
     {
@@ -7370,7 +7370,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_logic_process_inputs",
-      "community": 106,
+      "community": 5,
       "norm_label": "process_inputs()"
     },
     {
@@ -7400,7 +7400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui",
-      "community": 106,
+      "community": 5,
       "norm_label": "ltx2_5_ui.py"
     },
     {
@@ -7410,7 +7410,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_create_ui",
-      "community": 106,
+      "community": 5,
       "norm_label": "create_ui()"
     },
     {
@@ -7420,7 +7420,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_get_main_output_components",
-      "community": 106,
+      "community": 5,
       "norm_label": "get_main_output_components()"
     },
     {
@@ -7430,7 +7430,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_create_event_handlers",
-      "community": 106,
+      "community": 5,
       "norm_label": "create_event_handlers()"
     },
     {
@@ -7440,7 +7440,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_py_blocks",
-      "community": 106,
+      "community": 5,
       "norm_label": "blocks"
     },
     {
@@ -10052,6 +10052,806 @@
       "id": "tests_test_media_ref_prompt_rationale_1",
       "community": 106,
       "norm_label": "unit tests for the `@\u110b\u1175\u1106\u1175\u110c\u1175n` media-reference index resolver (media_ref_prompt)."
+    },
+    {
+      "label": "test_prompt_optimizer_wiring.py",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring",
+      "community": 108,
+      "norm_label": "test_prompt_optimizer_wiring.py"
+    },
+    {
+      "label": "token_converted()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_token_converted",
+      "community": 112,
+      "norm_label": "token_converted()"
+    },
+    {
+      "label": "_StubAssembler",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_stubassembler",
+      "community": 114,
+      "norm_label": "_stubassembler"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_stubassembler_init",
+      "community": 114,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".assemble()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_stubassembler_assemble",
+      "community": 114,
+      "norm_label": ".assemble()"
+    },
+    {
+      "label": "make_ui_values()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_make_ui_values",
+      "community": 108,
+      "norm_label": "make_ui_values()"
+    },
+    {
+      "label": "OptimizerTestCase",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "community": 108,
+      "norm_label": "optimizertestcase"
+    },
+    {
+      "label": ".setUp()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_optimizertestcase_setup",
+      "community": 114,
+      "norm_label": ".setup()"
+    },
+    {
+      "label": ".tearDown()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_optimizertestcase_teardown",
+      "community": 108,
+      "norm_label": ".teardown()"
+    },
+    {
+      "label": "._restore_env()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_optimizertestcase_restore_env",
+      "community": 108,
+      "norm_label": "._restore_env()"
+    },
+    {
+      "label": ".run_process_inputs()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "community": 109,
+      "norm_label": ".run_process_inputs()"
+    },
+    {
+      "label": "TestWiringStructure",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L125",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "community": 108,
+      "norm_label": "testwiringstructure"
+    },
+    {
+      "label": ".test_h3_logic_imports_optimize_prompt()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_h3_logic_imports_optimize_prompt",
+      "community": 108,
+      "norm_label": ".test_h3_logic_imports_optimize_prompt()"
+    },
+    {
+      "label": ".test_h3_logic_exposes_wrapper()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_h3_logic_exposes_wrapper",
+      "community": 108,
+      "norm_label": ".test_h3_logic_exposes_wrapper()"
+    },
+    {
+      "label": ".test_module_vendored_at_video_gen_path()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_module_vendored_at_video_gen_path",
+      "community": 108,
+      "norm_label": ".test_module_vendored_at_video_gen_path()"
+    },
+    {
+      "label": ".test_recipe_routes_prompt_into_h3_node()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_recipe_routes_prompt_into_h3_node",
+      "community": 108,
+      "norm_label": ".test_recipe_routes_prompt_into_h3_node()"
+    },
+    {
+      "label": "TestOptimizerGate",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "community": 110,
+      "norm_label": "testoptimizergate"
+    },
+    {
+      "label": "._check()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "community": 110,
+      "norm_label": "._check()"
+    },
+    {
+      "label": ".test_unset_is_enabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L155",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_unset_is_enabled",
+      "community": 110,
+      "norm_label": ".test_unset_is_enabled()"
+    },
+    {
+      "label": ".test_one_is_enabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_one_is_enabled",
+      "community": 110,
+      "norm_label": ".test_one_is_enabled()"
+    },
+    {
+      "label": ".test_zero_is_disabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L161",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_zero_is_disabled",
+      "community": 110,
+      "norm_label": ".test_zero_is_disabled()"
+    },
+    {
+      "label": ".test_off_is_disabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L164",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_off_is_disabled",
+      "community": 110,
+      "norm_label": ".test_off_is_disabled()"
+    },
+    {
+      "label": ".test_false_is_disabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L167",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_false_is_disabled",
+      "community": 110,
+      "norm_label": ".test_false_is_disabled()"
+    },
+    {
+      "label": ".test_no_is_disabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_no_is_disabled",
+      "community": 110,
+      "norm_label": ".test_no_is_disabled()"
+    },
+    {
+      "label": ".test_empty_string_is_disabled()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_empty_string_is_disabled",
+      "community": 110,
+      "norm_label": ".test_empty_string_is_disabled()"
+    },
+    {
+      "label": "TestProcessInputsSuccess",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L177",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "community": 109,
+      "norm_label": "testprocessinputssuccess"
+    },
+    {
+      "label": ".test_rewritten_prompt_reaches_assembler()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L181",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_rewritten_prompt_reaches_assembler",
+      "community": 109,
+      "norm_label": ".test_rewritten_prompt_reaches_assembler()"
+    },
+    {
+      "label": ".test_original_replaced_at_assembler()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_original_replaced_at_assembler",
+      "community": 109,
+      "norm_label": ".test_original_replaced_at_assembler()"
+    },
+    {
+      "label": ".test_picture_tag_survives_into_graph_input()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L196",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_picture_tag_survives_into_graph_input",
+      "community": 109,
+      "norm_label": ".test_picture_tag_survives_into_graph_input()"
+    },
+    {
+      "label": ".test_dialogue_tag_survives_into_graph_input()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L203",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_dialogue_tag_survives_into_graph_input",
+      "community": 109,
+      "norm_label": ".test_dialogue_tag_survives_into_graph_input()"
+    },
+    {
+      "label": "TestProcessInputsFailure",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L212",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "community": 109,
+      "norm_label": "testprocessinputsfailure"
+    },
+    {
+      "label": "._http_fail()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L216",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_http_fail",
+      "community": 109,
+      "norm_label": "._http_fail()"
+    },
+    {
+      "label": ".test_no_exception_escapes()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L219",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_no_exception_escapes",
+      "community": 109,
+      "norm_label": ".test_no_exception_escapes()"
+    },
+    {
+      "label": ".test_assembler_receives_original_token_converted_prompt()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L224",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_assembler_receives_original_token_converted_prompt",
+      "community": 109,
+      "norm_label": ".test_assembler_receives_original_token_converted_prompt()"
+    },
+    {
+      "label": ".test_raw_original_text_kept()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L228",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_raw_original_text_kept",
+      "community": 109,
+      "norm_label": ".test_raw_original_text_kept()"
+    },
+    {
+      "label": ".test_rewrite_not_used_on_failure()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_rewrite_not_used_on_failure",
+      "community": 109,
+      "norm_label": ".test_rewrite_not_used_on_failure()"
+    },
+    {
+      "label": ".test_conversion_ran_before_optimizer()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L236",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_conversion_ran_before_optimizer",
+      "community": 109,
+      "norm_label": ".test_conversion_ran_before_optimizer()"
+    },
+    {
+      "label": ".test_warning_logged_on_failure()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_warning_logged_on_failure",
+      "community": 109,
+      "norm_label": ".test_warning_logged_on_failure()"
+    },
+    {
+      "label": "TestProcessInputsDisabled",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L252",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "community": 112,
+      "norm_label": "testprocessinputsdisabled"
+    },
+    {
+      "label": "._http_must_not_be_called()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L256",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_http_must_not_be_called",
+      "community": 112,
+      "norm_label": "._http_must_not_be_called()"
+    },
+    {
+      "label": ".test_byte_identical_after_conversion()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L259",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_byte_identical_after_conversion",
+      "community": 112,
+      "norm_label": ".test_byte_identical_after_conversion()"
+    },
+    {
+      "label": ".test_conversion_independent_of_gate()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L266",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_conversion_independent_of_gate",
+      "community": 112,
+      "norm_label": ".test_conversion_independent_of_gate()"
+    },
+    {
+      "label": "TestWrapperDefenseInDepth",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L274",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth",
+      "community": 108,
+      "norm_label": "testwrapperdefenseindepth"
+    },
+    {
+      "label": ".test_unexpected_raise_falls_back_and_logs()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L278",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth_test_unexpected_raise_falls_back_and_logs",
+      "community": 108,
+      "norm_label": ".test_unexpected_raise_falls_back_and_logs()"
+    },
+    {
+      "label": "TestEngineSuccessAndCache",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L295",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "community": 111,
+      "norm_label": "testenginesuccessandcache"
+    },
+    {
+      "label": "_Resp",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L304",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_resp",
+      "community": 115,
+      "norm_label": "_resp"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L305",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_resp_init",
+      "community": 115,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".raise_for_status()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L309",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_resp_raise_for_status",
+      "community": 115,
+      "norm_label": ".raise_for_status()"
+    },
+    {
+      "label": ".json()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L315",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_resp_json",
+      "community": 115,
+      "norm_label": ".json()"
+    },
+    {
+      "label": ".text()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L319",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_resp_text",
+      "community": 115,
+      "norm_label": ".text()"
+    },
+    {
+      "label": "._install_post()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L322",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_install_post",
+      "community": 111,
+      "norm_label": "._install_post()"
+    },
+    {
+      "label": ".test_success_strips_thoughts_and_fences()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L327",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_success_strips_thoughts_and_fences",
+      "community": 111,
+      "norm_label": ".test_success_strips_thoughts_and_fences()"
+    },
+    {
+      "label": ".test_cache_hit_no_second_http_call()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L340",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_cache_hit_no_second_http_call",
+      "community": 111,
+      "norm_label": ".test_cache_hit_no_second_http_call()"
+    },
+    {
+      "label": ".test_different_prompt_refetches()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L355",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_different_prompt_refetches",
+      "community": 111,
+      "norm_label": ".test_different_prompt_refetches()"
+    },
+    {
+      "label": ".test_result_flags()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L367",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_result_flags",
+      "community": 111,
+      "norm_label": ".test_result_flags()"
+    },
+    {
+      "label": ".test_cache_key_is_prompt_sensitive()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L382",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_cache_key_is_prompt_sensitive",
+      "community": 111,
+      "norm_label": ".test_cache_key_is_prompt_sensitive()"
+    },
+    {
+      "label": "TestEngineFallback",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L390",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "community": 113,
+      "norm_label": "testenginefallback"
+    },
+    {
+      "label": "._raise_http_error()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L394",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginefallback_raise_http_error",
+      "community": 113,
+      "norm_label": "._raise_http_error()"
+    },
+    {
+      "label": ".test_http_error_returns_original()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L400",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginefallback_test_http_error_returns_original",
+      "community": 113,
+      "norm_label": ".test_http_error_returns_original()"
+    },
+    {
+      "label": ".test_http_error_logs_warning()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L408",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginefallback_test_http_error_logs_warning",
+      "community": 113,
+      "norm_label": ".test_http_error_logs_warning()"
+    },
+    {
+      "label": ".test_request_exception_returns_original_with_reason()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L417",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginefallback_test_request_exception_returns_original_with_reason",
+      "community": 113,
+      "norm_label": ".test_request_exception_returns_original_with_reason()"
+    },
+    {
+      "label": ".test_empty_response_treated_as_failure()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L427",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testenginefallback_test_empty_response_treated_as_failure",
+      "community": 113,
+      "norm_label": ".test_empty_response_treated_as_failure()"
+    },
+    {
+      "label": "TestEngineGuards",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L436",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testengineguards",
+      "community": 108,
+      "norm_label": "testengineguards"
+    },
+    {
+      "label": ".test_disabled_makes_no_http()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L439",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testengineguards_test_disabled_makes_no_http",
+      "community": 108,
+      "norm_label": ".test_disabled_makes_no_http()"
+    },
+    {
+      "label": ".test_empty_makes_no_http()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L446",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testengineguards_test_empty_makes_no_http",
+      "community": 108,
+      "norm_label": ".test_empty_makes_no_http()"
+    },
+    {
+      "label": "TestCacheApi",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L454",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testcacheapi",
+      "community": 108,
+      "norm_label": "testcacheapi"
+    },
+    {
+      "label": ".test_cache_size_and_clear()",
+      "file_type": "code",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L455",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_testcacheapi_test_cache_size_and_clear",
+      "community": 108,
+      "norm_label": ".test_cache_size_and_clear()"
+    },
+    {
+      "label": "Unit tests for the prompt-optimizer wiring on the comfy-webui side and its failu",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_1",
+      "community": 108,
+      "norm_label": "unit tests for the prompt-optimizer wiring on the comfy-webui side and its failu"
+    },
+    {
+      "label": "The prompt as it is handed to the optimizer: AFTER the `#`/`@` -> `<d>`/`<Pictur",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_49",
+      "community": 112,
+      "norm_label": "the prompt as it is handed to the optimizer: after the `#`/`@` -> `<d>`/`<pictur"
+    },
+    {
+      "label": "Captures the exact local_ui_values the graph-assembly step receives.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_57",
+      "community": 114,
+      "norm_label": "captures the exact local_ui_values the graph-assembly step receives."
+    },
+    {
+      "label": "A minimal T2VA ui_values (no frames / media) \u2014 enough to drive process_inputs.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_69",
+      "community": 108,
+      "norm_label": "a minimal t2va ui_values (no frames / media) \u2014 enough to drive process_inputs."
+    },
+    {
+      "label": "Shared fixture: stub the assembler, clear the cache, isolate the env gate,     a",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_90",
+      "community": 108,
+      "norm_label": "shared fixture: stub the assembler, clear the cache, isolate the env gate,     a"
+    },
+    {
+      "label": "Call process_inputs with the optimizer HTTP layer swapped for ``monkey_http``.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_116",
+      "community": 109,
+      "norm_label": "call process_inputs with the optimizer http layer swapped for ``monkey_http``."
+    },
+    {
+      "label": "Criterion (2): process_inputs calls the optimizer; the rewritten prompt is what",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_178",
+      "community": 109,
+      "norm_label": "criterion (2): process_inputs calls the optimizer; the rewritten prompt is what"
+    },
+    {
+      "label": "Criterion (3): on optimizer failure the ORIGINAL (token-converted) prompt is kep",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L213",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_213",
+      "community": 109,
+      "norm_label": "criterion (3): on optimizer failure the original (token-converted) prompt is kep"
+    },
+    {
+      "label": "A disabled gate passes the prompt through byte-identical (after the token     co",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L253",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_253",
+      "community": 112,
+      "norm_label": "a disabled gate passes the prompt through byte-identical (after the token     co"
+    },
+    {
+      "label": "The wrapper adds defense-in-depth: even an unexpected raise from the optimizer's",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L275",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_275",
+      "community": 108,
+      "norm_label": "the wrapper adds defense-in-depth: even an unexpected raise from the optimizer's"
+    },
+    {
+      "label": "Engine-level: mock the endpoint at ``requests.post`` so the REAL parser runs, an",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L296",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_296",
+      "community": 111,
+      "norm_label": "engine-level: mock the endpoint at ``requests.post`` so the real parser runs, an"
+    },
+    {
+      "label": "Engine-level HTTP failure (criterion (3)): the original prompt is returned and a",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L391",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_391",
+      "community": 113,
+      "norm_label": "engine-level http failure (criterion (3)): the original prompt is returned and a"
+    },
+    {
+      "label": "Disabled or empty prompts pass straight through with no HTTP call.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L437",
+      "_origin": "ast",
+      "id": "tests_test_prompt_optimizer_wiring_rationale_437",
+      "community": 108,
+      "norm_label": "disabled or empty prompts pass straight through with no http call."
     },
     {
       "label": "__init__.py",
@@ -26250,6 +27050,1193 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_make_ui_values",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L304",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_resp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_stubassembler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L454",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testcacheapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L436",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testengineguards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L295",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring",
+      "target": "tests_test_prompt_optimizer_wiring_token_converted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_1",
+      "target": "tests_test_prompt_optimizer_wiring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_49",
+      "target": "tests_test_prompt_optimizer_wiring_token_converted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L264",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_byte_identical_after_conversion",
+      "target": "tests_test_prompt_optimizer_wiring_token_converted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L226",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_assembler_receives_original_token_converted_prompt",
+      "target": "tests_test_prompt_optimizer_wiring_token_converted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_optimizertestcase_setup",
+      "target": "tests_test_prompt_optimizer_wiring_stubassembler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_57",
+      "target": "tests_test_prompt_optimizer_wiring_stubassembler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_stubassembler",
+      "target": "tests_test_prompt_optimizer_wiring_stubassembler_assemble",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_stubassembler",
+      "target": "tests_test_prompt_optimizer_wiring_stubassembler_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "target": "tests_test_prompt_optimizer_wiring_make_ui_values",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_69",
+      "target": "tests_test_prompt_optimizer_wiring_make_ui_values",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_restore_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_teardown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_90",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L454",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testcacheapi",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L436",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testengineguards",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L295",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_116",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_byte_identical_after_conversion",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L268",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_conversion_independent_of_gate",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L225",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_assembler_receives_original_token_converted_prompt",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_conversion_ran_before_optimizer",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_no_exception_escapes",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_raw_original_text_kept",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_rewrite_not_used_on_failure",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_warning_logged_on_failure",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_dialogue_tag_survives_into_graph_input",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_original_replaced_at_assembler",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_picture_tag_survives_into_graph_input",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_rewritten_prompt_reaches_assembler",
+      "target": "tests_test_prompt_optimizer_wiring_optimizertestcase_run_process_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "target": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_h3_logic_exposes_wrapper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "target": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_h3_logic_imports_optimize_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "target": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_module_vendored_at_video_gen_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwiringstructure",
+      "target": "tests_test_prompt_optimizer_wiring_testwiringstructure_test_recipe_routes_prompt_into_h3_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_empty_string_is_disabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_false_is_disabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_no_is_disabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_off_is_disabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_one_is_enabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_unset_is_enabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_zero_is_disabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_empty_string_is_disabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_false_is_disabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_no_is_disabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_off_is_disabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_one_is_enabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_unset_is_enabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testoptimizergate_test_zero_is_disabled",
+      "target": "tests_test_prompt_optimizer_wiring_testoptimizergate_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_178",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_dialogue_tag_survives_into_graph_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_original_replaced_at_assembler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_picture_tag_survives_into_graph_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputssuccess_test_rewritten_prompt_reaches_assembler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_213",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L216",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_http_fail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_assembler_receives_original_token_converted_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L236",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_conversion_ran_before_optimizer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_no_exception_escapes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_raw_original_text_kept",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_rewrite_not_used_on_failure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsfailure_test_warning_logged_on_failure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_253",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L256",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_http_must_not_be_called",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_byte_identical_after_conversion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L266",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled",
+      "target": "tests_test_prompt_optimizer_wiring_testprocessinputsdisabled_test_conversion_independent_of_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L275",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_275",
+      "target": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth",
+      "target": "tests_test_prompt_optimizer_wiring_testwrapperdefenseindepth_test_unexpected_raise_falls_back_and_logs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L296",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_296",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L322",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_install_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L340",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_cache_hit_no_second_http_call",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L382",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_cache_key_is_prompt_sensitive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L355",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_different_prompt_refetches",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L367",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_result_flags",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L327",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_success_strips_thoughts_and_fences",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_resp",
+      "target": "tests_test_prompt_optimizer_wiring_resp_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_resp",
+      "target": "tests_test_prompt_optimizer_wiring_resp_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_resp",
+      "target": "tests_test_prompt_optimizer_wiring_resp_raise_for_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L319",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_resp",
+      "target": "tests_test_prompt_optimizer_wiring_resp_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L347",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_cache_hit_no_second_http_call",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_install_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L362",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_different_prompt_refetches",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_install_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L374",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_result_flags",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_install_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_test_success_strips_thoughts_and_fences",
+      "target": "tests_test_prompt_optimizer_wiring_testenginesuccessandcache_install_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L391",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_391",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L394",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback_raise_http_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L427",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback_test_empty_response_treated_as_failure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L408",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback_test_http_error_logs_warning",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L400",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback_test_http_error_returns_original",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L417",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testenginefallback",
+      "target": "tests_test_prompt_optimizer_wiring_testenginefallback_test_request_exception_returns_original_with_reason",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L437",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_rationale_437",
+      "target": "tests_test_prompt_optimizer_wiring_testengineguards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L439",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testengineguards",
+      "target": "tests_test_prompt_optimizer_wiring_testengineguards_test_disabled_makes_no_http",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L446",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testengineguards",
+      "target": "tests_test_prompt_optimizer_wiring_testengineguards_test_empty_makes_no_http",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompt_optimizer_wiring.py",
+      "source_location": "L455",
+      "weight": 1.0,
+      "source": "tests_test_prompt_optimizer_wiring_testcacheapi",
+      "target": "tests_test_prompt_optimizer_wiring_testcacheapi_test_cache_size_and_clear",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils/__init__.py",
@@ -26711,5 +28698,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "470ac90b0dd84e70763bd8ae8fb08e133b271eaa"
+  "built_at_commit": "832f48a6fd1a4c45c0d4f234f13ec960ff73d824"
 }

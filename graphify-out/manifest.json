@@ -2613,5 +2613,10 @@
     "mtime": 1793694865.4958537,
     "ast_hash": "9ec12367ad352364a4eaa93912125d61",
     "semantic_hash": ""
+  },
+  "tests/test_prompt_optimizer_wiring.py": {
+    "mtime": 1793695579.7090032,
+    "ast_hash": "4e52a8d8ba51cd3f50abd65cb2c9cbfc",
+    "semantic_hash": ""
   }
 }

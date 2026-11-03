@@ -1,16 +1,16 @@
 # Graph Report - comfy-webui  (2026-11-03)
 
 ## Corpus Check
-- 226 files · ~516,289 words
+- 227 files · ~517,813 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1043 nodes · 1546 edges · 108 communities (98 shown, 10 thin omitted)
+- 1123 nodes · 1662 edges · 116 communities (101 shown, 15 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `470ac90b`
+- Built from commit: `832f48a6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -103,6 +103,14 @@
 - [[_COMMUNITY_Community 102|Community 102]]
 - [[_COMMUNITY_Community 106|Community 106]]
 - [[_COMMUNITY_Community 107|Community 107]]
+- [[_COMMUNITY_Community 108|Community 108]]
+- [[_COMMUNITY_Community 109|Community 109]]
+- [[_COMMUNITY_Community 110|Community 110]]
+- [[_COMMUNITY_Community 111|Community 111]]
+- [[_COMMUNITY_Community 112|Community 112]]
+- [[_COMMUNITY_Community 113|Community 113]]
+- [[_COMMUNITY_Community 114|Community 114]]
+- [[_COMMUNITY_Community 115|Community 115]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `process_inputs()` - 32 edges
@@ -111,10 +119,10 @@
 4. `ensure_file_downloaded()` - 22 edges
 5. `apply_reference_tokens()` - 18 edges
 6. `_load_yaml()` - 16 edges
-7. `make_not_found_error()` - 14 edges
-8. `load_model_config()` - 13 edges
-9. `register_shared_events()` - 12 edges
-10. `TestReferenceTokens` - 12 edges
+7. `OptimizerTestCase` - 16 edges
+8. `make_not_found_error()` - 14 edges
+9. `load_model_config()` - 13 edges
+10. `register_shared_events()` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `test_manifest_lookup()` --calls--> `lookup_file_info()`  [EXTRACTED]
@@ -131,15 +139,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (108 total, 10 thin omitted)
+## Communities (116 total, 15 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
 Nodes (63): MCP Module for ImageGen in comfy-webui. Exposes MCP_FUNCTIONS from .mcp_tools pa, _apply_multiangle_ui_values(), _download_image_from_url(), DummyProgress, _execute_imagegen_pipeline(), _get_ipadapter_presets_by_arch(), _get_public_base_url(), _load_yaml() (+55 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.09
-Nodes (51): create_event_handlers(), create_ui(), Blocks, load_architectures_config(), load_constants_config(), load_controlnet_models(), load_features_config(), load_ipadapter_presets() (+43 more)
+Cohesion: 0.10
+Nodes (50): create_event_handlers(), create_ui(), Blocks, load_architectures_config(), load_constants_config(), load_controlnet_models(), load_features_config(), load_ipadapter_presets() (+42 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
@@ -154,12 +162,12 @@ Cohesion: 0.10
 Nodes (31): MCP Module for Lightricks LTX-2.5 Video Generation in comfy-webui. Exposes MCP_F, _download_audio_from_url(), _download_image_from_url(), _execute_ltx2_5_pipeline(), _parse_audio_param(), _parse_image_param(), Any, Image (+23 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.09
-Nodes (14): apply_dialog_prefixes(), dialogue_line_content(), has_dialogue_lines(), r"""`#` dialogue-prefix preprocessing (ported from ComfyUI-MiniMaxH3-Easy).  Sou, True when the prompt contains at least one `#` dialogue line., Rewrite `#` dialogue segments into the target model's audio convention.      tar, r"""Return the dialogue text of `line` if it is a `#` dialogue line, else None., Format one dialogue segment as an LTX quoted-speech cue sentence. (+6 more)
+Cohesion: 0.08
+Nodes (17): apply_dialog_prefixes(), dialogue_line_content(), has_dialogue_lines(), r"""`#` dialogue-prefix preprocessing (ported from ComfyUI-MiniMaxH3-Easy).  Sou, True when the prompt contains at least one `#` dialogue line., Rewrite `#` dialogue segments into the target model's audio convention.      tar, r"""Return the dialogue text of `line` if it is a `#` dialogue line, else None., Format one dialogue segment as an LTX quoted-speech cue sentence. (+9 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.15
-Nodes (30): process_inputs(), Generic input processor for all image generation tasks based on unified_recipe.y, process_inputs(), process_conditioning_inputs(), process_controlnet_inputs(), process_embedding_inputs(), process_flux1_ipadapter_inputs(), process_flux3_prompt_upsampler_inputs() (+22 more)
+Nodes (31): process_inputs(), Generic input processor for all image generation tasks based on unified_recipe.y, process_inputs(), process_conditioning_inputs(), process_controlnet_inputs(), process_embedding_inputs(), process_flux1_ipadapter_inputs(), process_flux3_prompt_upsampler_inputs() (+23 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.11
@@ -438,32 +446,44 @@ Cohesion: 0.83
 Nodes (3): inject(), load_model_config(), load_pid_config()
 
 ### Community 106 - "Community 106"
-Cohesion: 0.11
-Nodes (10): process_inputs(), create_event_handlers(), Blocks, apply_reference_tokens(), has_reference_tokens(), r"""`@` media-reference token resolution (ported from ComfyUI-MiniMaxH3-Easy)., True when the prompt carries at least one `@이미지N` index token., Rewrite `@이미지N` index tokens into the target model's reference convention. (+2 more)
+Cohesion: 0.15
+Nodes (7): apply_reference_tokens(), has_reference_tokens(), r"""`@` media-reference token resolution (ported from ComfyUI-MiniMaxH3-Easy)., True when the prompt carries at least one `@이미지N` index token., Rewrite `@이미지N` index tokens into the target model's reference convention., Unit tests for the `@이미지N` media-reference index resolver (media_ref_prompt)., TestReferenceTokens
 
 ### Community 107 - "Community 107"
 Cohesion: 0.08
 Nodes (36): calculate_h3_frame_length(), _optimize_h3_prompt(), _optimizer_enabled(), process_h3_guide_inputs(), process_inputs(), Gate the prompt-optimizer pre-processing step.      Enabled by default. Set ``PR, Rewrite the H3-tag-bearing prompt via the shared optimizer.      Purely a pre-pr, Converts duration (seconds) at 24fps to a valid frame length     snapped up to t (+28 more)
 
+### Community 108 - "Community 108"
+Cohesion: 0.11
+Nodes (11): make_ui_values(), OptimizerTestCase, Unit tests for the prompt-optimizer wiring on the comfy-webui side and its failu, The wrapper adds defense-in-depth: even an unexpected raise from the optimizer's, Disabled or empty prompts pass straight through with no HTTP call., A minimal T2VA ui_values (no frames / media) — enough to drive process_inputs., Shared fixture: stub the assembler, clear the cache, isolate the env gate,     a, TestCacheApi (+3 more)
+
+### Community 109 - "Community 109"
+Cohesion: 0.18
+Nodes (5): Call process_inputs with the optimizer HTTP layer swapped for ``monkey_http``., Criterion (2): process_inputs calls the optimizer; the rewritten prompt is what, Criterion (3): on optimizer failure the ORIGINAL (token-converted) prompt is kep, TestProcessInputsFailure, TestProcessInputsSuccess
+
+### Community 112 - "Community 112"
+Cohesion: 0.29
+Nodes (4): A disabled gate passes the prompt through byte-identical (after the token     co, The prompt as it is handed to the optimizer: AFTER the `#`/`@` -> `<d>`/`<Pictur, TestProcessInputsDisabled, token_converted()
+
 ## Knowledge Gaps
 - **11 isolated node(s):** `Development Status`, `Security Advisory`, `✨ Key Features`, `Automated long-context workflows`, `💡 For Developers: Discover the Comfy web UI Core Framework` (+6 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `process_inputs()` connect `Community 6` to `Community 0`, `Community 1`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `apply_dialog_prefixes()` connect `Community 5` to `Community 106`, `Community 107`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `process_inputs()` connect `Community 106` to `Community 4`, `Community 5`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `apply_dialog_prefixes()` connect `Community 5` to `Community 107`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `process_inputs()` connect `Community 5` to `Community 106`, `Community 4`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 18 inferred relationships involving `create_ui()` (e.g. with `create_conditioning_ui()` and `create_controlnet_ui()`) actually correct?**
   _`create_ui()` has 18 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Generates a 3D model from a single input image using the Hunyuan3D-2 model.`, `Generates a 3D model from three input images (front, back, left) using the Hunyu`, `Generates a 3D model from a single input image using TRELLIS-2 / Pixal3D with au` to the rest of the system?**
-  _152 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _165 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.06394027913015254 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.09307244843997885 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09508196721311475 - nodes in this community are weakly interconnected._
