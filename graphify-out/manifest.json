@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "module/video_gen/H3/h3_logic.py": {
-    "mtime": 1793673162.7821815,
-    "ast_hash": "17c4079996b737d0393cdcd2108eba0d",
+    "mtime": 1793694880.8278697,
+    "ast_hash": "a6dd88186e7e62f6b1bc580c1eed6db0",
     "semantic_hash": ""
   },
   "module/video_gen/H3/h3_mcp.py": {
@@ -2607,6 +2607,11 @@
   "tests/test_media_ref_prompt.py": {
     "mtime": 1793673198.990739,
     "ast_hash": "9a6782838f164cf67cd3e885dc821de8",
+    "semantic_hash": ""
+  },
+  "module/video_gen/prompt_optimizer.py": {
+    "mtime": 1793694865.4958537,
+    "ast_hash": "9ec12367ad352364a4eaa93912125d61",
     "semantic_hash": ""
   }
 }
