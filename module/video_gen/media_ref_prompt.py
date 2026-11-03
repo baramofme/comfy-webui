@@ -28,13 +28,26 @@ ordinal map at the text level (named elements live on the OpenHiggsfield side, a
 name -> reference mapping must travel with the plane, not be re-derived from text).
 Resolving `@이름` end-to-end is tracked in the dock rich-editor card (t_369bfe36).
 
-Korean-particle safety (from the t_e92daf19 convention): the token is `@이미지<digits>`
-and the following particle (이/가/을/를/로/으로 ...) sits OUTSIDE the token, so replacing
-only the token leaves the particle intact -- `@이미지2가` -> `<Picture 2>가`, no case
-destruction.
+Video chips (t_e441cf76 design decision, YES): the dock emits `@동영상N` for an attached
+video with type-based independent numbering (tray=add order), and h3NamedTemplate labels
+the Nth video `<Video ${index + 1}>` -- ordinal independent of the image count
+(to-platform.ts L405). The two coordinate systems agree exactly, so `@동영상N` ->
+`<Video N>` is a faithful numeric transposition on the H3 target, and it lands on the
+same slot as the auto-declared label when both appear. The audio chip is deliberately
+NOT resolved: the template's audio ordinal is `videos.length + audio_index + 1`
+(to-platform.ts L409), which mismatches the dock's `@오디오N` type-local numbering --
+transposing would silently point at a different slot, so `@오디오N` stays literal.
+LTX target: video tokens are a no-op (LTX 2.5 has no free-reference stack at all --
+start/end anchors are images only).
 
-Zero-regression guarantee: a prompt with no `@이미지` token is returned byte-identical
-(the original string object itself, CRLF and all), mirroring apply_dialog_prefixes.
+Korean-particle safety (from the t_e92daf19 convention): the token is `@이미지<digits>` /
+`@동영상<digits>` and the following particle (이/가/을/를/로/으로 ...) sits OUTSIDE the
+token, so replacing only the token leaves the particle intact -- `@이미지2가` ->
+`<Picture 2>가`, `@동영상1가` -> `<Video 1>가`, no case destruction.
+
+Zero-regression guarantee: a prompt carrying no token that THIS target can resolve is
+returned byte-identical (the original string object itself, CRLF and all), mirroring
+apply_dialog_prefixes. A video-only prompt is therefore byte-identical on the LTX target.
 """
 
 import re
