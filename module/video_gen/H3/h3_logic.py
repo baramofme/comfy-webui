@@ -1,12 +1,43 @@
 import os
 import math
+import logging
 from comfy_webui_core.workflow_assembler import WorkflowAssembler
 from comfy_webui_core.utils import get_filename_prefix, handle_seed, save_temp_image, save_temp_video, save_temp_audio
 from comfy_webui_core.input_processors import process_lora_inputs
 from module.video_gen.dialog_prompt import apply_dialog_prefixes
 from module.video_gen.media_ref_prompt import apply_reference_tokens
+from module.video_gen.prompt_optimizer import optimize_prompt
 
 MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _optimizer_enabled() -> bool:
+    """Gate the prompt-optimizer pre-processing step.
+
+    Enabled by default. Set ``PROMPT_OPTIMIZER_ENABLED`` to ``0``/``false``/``no``/
+    ``off`` to bypass the LLM call entirely -- byte-identical prompts, no endpoint
+    dependency (e.g. the local optimizer endpoint is down, or you want the raw prompt
+    verbatim). This keeps the call opt-outable without ever making it a hard failure.
+    """
+    raw = os.environ.get("PROMPT_OPTIMIZER_ENABLED", "1").strip().lower()
+    return raw not in ("", "0", "false", "no", "off")
+
+
+def _optimize_h3_prompt(prompt: str) -> str:
+    """Rewrite the H3-tag-bearing prompt via the shared optimizer.
+
+    Purely a pre-processing step on top of the ``#``/``@`` -> ``<d>``/``<Picture N>``
+    conversion -- never a hard failure. ``optimize_prompt`` already returns the
+    ORIGINAL prompt with a warning on any HTTP/parse error and passes through when
+    disabled; the wrapper adds defense-in-depth so even an unexpected raise inside
+    the optimizer can't break the submit path -- the original prompt always survives.
+    """
+    try:
+        return optimize_prompt(prompt, enabled=_optimizer_enabled())
+    except Exception as exc:  # noqa: BLE001 -- every failure must fall through
+        logging.getLogger("prompt_optimizer").warning(
+            "[prompt_optimizer] wrapper failed, using original prompt: %s", exc)
+        return prompt
 
 RESOLUTION_PRESETS = {
     "1080p": {
