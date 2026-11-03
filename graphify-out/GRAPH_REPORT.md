@@ -1,16 +1,16 @@
-# Graph Report - comfy-webui  (2026-11-03)
+# Graph Report - comfy-webui  (2026-11-04)
 
 ## Corpus Check
-- 227 files · ~517,813 words
+- 227 files · ~518,593 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1123 nodes · 1662 edges · 116 communities (101 shown, 15 thin omitted)
+- 1138 nodes · 1689 edges · 116 communities (101 shown, 15 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `832f48a6`
+- Built from commit: `ae0e7874`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -114,15 +114,15 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `process_inputs()` - 32 edges
-2. `create_ui()` - 26 edges
-3. `apply_dialog_prefixes()` - 25 edges
-4. `ensure_file_downloaded()` - 22 edges
-5. `apply_reference_tokens()` - 18 edges
-6. `_load_yaml()` - 16 edges
-7. `OptimizerTestCase` - 16 edges
-8. `make_not_found_error()` - 14 edges
-9. `load_model_config()` - 13 edges
-10. `register_shared_events()` - 12 edges
+2. `apply_reference_tokens()` - 30 edges
+3. `create_ui()` - 26 edges
+4. `apply_dialog_prefixes()` - 25 edges
+5. `TestReferenceTokens` - 24 edges
+6. `ensure_file_downloaded()` - 22 edges
+7. `_load_yaml()` - 16 edges
+8. `OptimizerTestCase` - 16 edges
+9. `make_not_found_error()` - 14 edges
+10. `load_model_config()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `test_manifest_lookup()` --calls--> `lookup_file_info()`  [EXTRACTED]
@@ -158,12 +158,12 @@ Cohesion: 0.08
 Nodes (38): MCP Module for MiniMax-H3 Video Generation in comfy-webui. Exposes MCP_FUNCTIONS, _download_file_from_url(), _download_image_from_url(), _execute_h3_pipeline(), _lora_entry_to_prefixed(), _normalize_lora_entries(), _parse_audio_param(), _parse_image_param() (+30 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.10
-Nodes (31): MCP Module for Lightricks LTX-2.5 Video Generation in comfy-webui. Exposes MCP_F, _download_audio_from_url(), _download_image_from_url(), _execute_ltx2_5_pipeline(), _parse_audio_param(), _parse_image_param(), Any, Image (+23 more)
+Cohesion: 0.08
+Nodes (34): process_inputs(), MCP Module for Lightricks LTX-2.5 Video Generation in comfy-webui. Exposes MCP_F, create_event_handlers(), Blocks, _download_audio_from_url(), _download_image_from_url(), _execute_ltx2_5_pipeline(), _parse_audio_param() (+26 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.08
-Nodes (17): apply_dialog_prefixes(), dialogue_line_content(), has_dialogue_lines(), r"""`#` dialogue-prefix preprocessing (ported from ComfyUI-MiniMaxH3-Easy).  Sou, True when the prompt contains at least one `#` dialogue line., Rewrite `#` dialogue segments into the target model's audio convention.      tar, r"""Return the dialogue text of `line` if it is a `#` dialogue line, else None., Format one dialogue segment as an LTX quoted-speech cue sentence. (+9 more)
+Cohesion: 0.09
+Nodes (14): apply_dialog_prefixes(), dialogue_line_content(), has_dialogue_lines(), r"""`#` dialogue-prefix preprocessing (ported from ComfyUI-MiniMaxH3-Easy).  Sou, True when the prompt contains at least one `#` dialogue line., Rewrite `#` dialogue segments into the target model's audio convention.      tar, r"""Return the dialogue text of `line` if it is a `#` dialogue line, else None., Format one dialogue segment as an LTX quoted-speech cue sentence. (+6 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.15
@@ -446,8 +446,8 @@ Cohesion: 0.83
 Nodes (3): inject(), load_model_config(), load_pid_config()
 
 ### Community 106 - "Community 106"
-Cohesion: 0.15
-Nodes (7): apply_reference_tokens(), has_reference_tokens(), r"""`@` media-reference token resolution (ported from ComfyUI-MiniMaxH3-Easy)., True when the prompt carries at least one `@이미지N` index token., Rewrite `@이미지N` index tokens into the target model's reference convention., Unit tests for the `@이미지N` media-reference index resolver (media_ref_prompt)., TestReferenceTokens
+Cohesion: 0.09
+Nodes (9): apply_reference_tokens(), has_reference_tokens(), r"""`@` media-reference token resolution (ported from ComfyUI-MiniMaxH3-Easy)., Rewrite `@이미지N` / `@동영상N` index tokens into the target model's reference convent, True when the prompt carries at least one `@이미지N` / `@동영상N` index token.      `@, Whether THIS target has at least one token it would actually rewrite.      h3, _resolvable_for_target(), Unit tests for the `@이미지N` media-reference index resolver (media_ref_prompt). (+1 more)
 
 ### Community 107 - "Community 107"
 Cohesion: 0.08
@@ -475,14 +475,14 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `process_inputs()` connect `Community 6` to `Community 0`, `Community 1`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `apply_dialog_prefixes()` connect `Community 5` to `Community 107`?**
+- **Why does `apply_dialog_prefixes()` connect `Community 5` to `Community 107`, `Community 4`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Why does `process_inputs()` connect `Community 4` to `Community 106`, `Community 5`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Why does `process_inputs()` connect `Community 5` to `Community 106`, `Community 4`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 18 inferred relationships involving `create_ui()` (e.g. with `create_conditioning_ui()` and `create_controlnet_ui()`) actually correct?**
   _`create_ui()` has 18 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Generates a 3D model from a single input image using the Hunyuan3D-2 model.`, `Generates a 3D model from three input images (front, back, left) using the Hunyu`, `Generates a 3D model from a single input image using TRELLIS-2 / Pixal3D with au` to the rest of the system?**
-  _165 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _166 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.06394027913015254 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

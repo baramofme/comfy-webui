@@ -7360,7 +7360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_logic",
-      "community": 5,
+      "community": 4,
       "norm_label": "ltx2_5_logic.py"
     },
     {
@@ -7370,7 +7370,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_logic_process_inputs",
-      "community": 5,
+      "community": 4,
       "norm_label": "process_inputs()"
     },
     {
@@ -7400,7 +7400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui",
-      "community": 5,
+      "community": 4,
       "norm_label": "ltx2_5_ui.py"
     },
     {
@@ -7410,7 +7410,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_create_ui",
-      "community": 5,
+      "community": 4,
       "norm_label": "create_ui()"
     },
     {
@@ -7420,7 +7420,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_get_main_output_components",
-      "community": 5,
+      "community": 4,
       "norm_label": "get_main_output_components()"
     },
     {
@@ -7430,7 +7430,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_create_event_handlers",
-      "community": 5,
+      "community": 4,
       "norm_label": "create_event_handlers()"
     },
     {
@@ -7440,7 +7440,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "module_video_gen_ltx_2_5_ltx2_5_ui_py_blocks",
-      "community": 5,
+      "community": 4,
       "norm_label": "blocks"
     },
     {
@@ -8057,27 +8057,47 @@
       "label": "has_reference_tokens()",
       "file_type": "code",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L57",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "module_video_gen_media_ref_prompt_has_reference_tokens",
       "community": 106,
       "norm_label": "has_reference_tokens()"
     },
     {
+      "label": "_resolvable_for_target()",
+      "file_type": "code",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "module_video_gen_media_ref_prompt_resolvable_for_target",
+      "community": 106,
+      "norm_label": "_resolvable_for_target()"
+    },
+    {
       "label": "_picture_tag()",
       "file_type": "code",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L64",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "module_video_gen_media_ref_prompt_picture_tag",
       "community": 106,
       "norm_label": "_picture_tag()"
     },
     {
+      "label": "_video_tag()",
+      "file_type": "code",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "module_video_gen_media_ref_prompt_video_tag",
+      "community": 106,
+      "norm_label": "_video_tag()"
+    },
+    {
       "label": "_ltx_phrase()",
       "file_type": "code",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L68",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "module_video_gen_media_ref_prompt_ltx_phrase",
       "community": 106,
@@ -8087,7 +8107,7 @@
       "label": "apply_reference_tokens()",
       "file_type": "code",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L76",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "module_video_gen_media_ref_prompt_apply_reference_tokens",
       "community": 106,
@@ -8104,24 +8124,34 @@
       "norm_label": "r\"\"\"`@` media-reference token resolution (ported from comfyui-minimaxh3-easy)."
     },
     {
-      "label": "True when the prompt carries at least one `@\uc774\ubbf8\uc9c0N` index token.",
+      "label": "True when the prompt carries at least one `@\uc774\ubbf8\uc9c0N` / `@\ub3d9\uc601\uc0c1N` index token.      `@",
       "file_type": "rationale",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L58",
+      "source_location": "L81",
       "_origin": "ast",
-      "id": "module_video_gen_media_ref_prompt_rationale_58",
+      "id": "module_video_gen_media_ref_prompt_rationale_81",
       "community": 106,
-      "norm_label": "true when the prompt carries at least one `@\u110b\u1175\u1106\u1175\u110c\u1175n` index token."
+      "norm_label": "true when the prompt carries at least one `@\u110b\u1175\u1106\u1175\u110c\u1175n` / `@\u1103\u1169\u11bc\u110b\u1167\u11bc\u1109\u1161\u11bcn` index token.      `@"
     },
     {
-      "label": "Rewrite `@\uc774\ubbf8\uc9c0N` index tokens into the target model's reference convention.",
+      "label": "Whether THIS target has at least one token it would actually rewrite.      h3",
       "file_type": "rationale",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L77",
+      "source_location": "L93",
       "_origin": "ast",
-      "id": "module_video_gen_media_ref_prompt_rationale_77",
+      "id": "module_video_gen_media_ref_prompt_rationale_93",
       "community": 106,
-      "norm_label": "rewrite `@\u110b\u1175\u1106\u1175\u110c\u1175n` index tokens into the target model's reference convention."
+      "norm_label": "whether this target has at least one token it would actually rewrite.      h3"
+    },
+    {
+      "label": "Rewrite `@\uc774\ubbf8\uc9c0N` / `@\ub3d9\uc601\uc0c1N` index tokens into the target model's reference convent",
+      "file_type": "rationale",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L127",
+      "_origin": "ast",
+      "id": "module_video_gen_media_ref_prompt_rationale_127",
+      "community": 106,
+      "norm_label": "rewrite `@\u110b\u1175\u1106\u1175\u110c\u1175n` / `@\u1103\u1169\u11bc\u110b\u1167\u11bc\u1109\u1161\u11bcn` index tokens into the target model's reference convent"
     },
     {
       "label": "prompt_optimizer.py",
@@ -10027,7 +10057,7 @@
       "label": ".test_non_string()",
       "file_type": "code",
       "source_file": "tests/test_media_ref_prompt.py",
-      "source_location": "L57",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "tests_test_media_ref_prompt_testreferencetokens_test_non_string",
       "community": 106,
@@ -10037,11 +10067,131 @@
       "label": ".test_compose_after_dialog()",
       "file_type": "code",
       "source_file": "tests/test_media_ref_prompt.py",
-      "source_location": "L60",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "tests_test_media_ref_prompt_testreferencetokens_test_compose_after_dialog",
       "community": 106,
       "norm_label": ".test_compose_after_dialog()"
+    },
+    {
+      "label": ".test_h3_video_substitution()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_h3_video_substitution",
+      "community": 106,
+      "norm_label": ".test_h3_video_substitution()"
+    },
+    {
+      "label": ".test_video_particle_preserved()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_video_particle_preserved",
+      "community": 106,
+      "norm_label": ".test_video_particle_preserved()"
+    },
+    {
+      "label": ".test_video_double_digit()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_video_double_digit",
+      "community": 106,
+      "norm_label": ".test_video_double_digit()"
+    },
+    {
+      "label": ".test_video_aliases()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_video_aliases",
+      "community": 106,
+      "norm_label": ".test_video_aliases()"
+    },
+    {
+      "label": ".test_video_space_variant()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_video_space_variant",
+      "community": 106,
+      "norm_label": ".test_video_space_variant()"
+    },
+    {
+      "label": ".test_mixed_image_video_h3()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_mixed_image_video_h3",
+      "community": 106,
+      "norm_label": ".test_mixed_image_video_h3()"
+    },
+    {
+      "label": ".test_auto_label_coexistence()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_auto_label_coexistence",
+      "community": 106,
+      "norm_label": ".test_auto_label_coexistence()"
+    },
+    {
+      "label": ".test_audio_literal_zero_regression()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_audio_literal_zero_regression",
+      "community": 106,
+      "norm_label": ".test_audio_literal_zero_regression()"
+    },
+    {
+      "label": ".test_audio_only_is_byte_identical()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L117",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_audio_only_is_byte_identical",
+      "community": 106,
+      "norm_label": ".test_audio_only_is_byte_identical()"
+    },
+    {
+      "label": ".test_ltx_video_noop_zero_regression()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_video_noop_zero_regression",
+      "community": 106,
+      "norm_label": ".test_ltx_video_noop_zero_regression()"
+    },
+    {
+      "label": ".test_ltx_video_intact_alongside_image()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_video_intact_alongside_image",
+      "community": 106,
+      "norm_label": ".test_ltx_video_intact_alongside_image()"
+    },
+    {
+      "label": ".test_keep_video()",
+      "file_type": "code",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "tests_test_media_ref_prompt_testreferencetokens_test_keep_video",
+      "community": 106,
+      "norm_label": ".test_keep_video()"
     },
     {
       "label": "Unit tests for the `@\uc774\ubbf8\uc9c0N` media-reference index resolver (media_ref_prompt).",
@@ -24625,7 +24775,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L76",
+      "source_location": "L126",
       "weight": 1.0,
       "source": "module_video_gen_media_ref_prompt",
       "target": "module_video_gen_media_ref_prompt_apply_reference_tokens",
@@ -24635,7 +24785,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L57",
+      "source_location": "L80",
       "weight": 1.0,
       "source": "module_video_gen_media_ref_prompt",
       "target": "module_video_gen_media_ref_prompt_has_reference_tokens",
@@ -24645,7 +24795,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L68",
+      "source_location": "L118",
       "weight": 1.0,
       "source": "module_video_gen_media_ref_prompt",
       "target": "module_video_gen_media_ref_prompt_ltx_phrase",
@@ -24655,10 +24805,30 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L64",
+      "source_location": "L110",
       "weight": 1.0,
       "source": "module_video_gen_media_ref_prompt",
       "target": "module_video_gen_media_ref_prompt_picture_tag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "module_video_gen_media_ref_prompt",
+      "target": "module_video_gen_media_ref_prompt_resolvable_for_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "module_video_gen_media_ref_prompt",
+      "target": "module_video_gen_media_ref_prompt_video_tag",
       "confidence_score": 1.0
     },
     {
@@ -24683,23 +24853,12 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L90",
-      "weight": 1.0,
-      "source": "module_video_gen_media_ref_prompt_apply_reference_tokens",
-      "target": "module_video_gen_media_ref_prompt_has_reference_tokens",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L58",
+      "source_location": "L81",
       "weight": 1.0,
-      "source": "module_video_gen_media_ref_prompt_rationale_58",
+      "source": "module_video_gen_media_ref_prompt_rationale_81",
       "target": "module_video_gen_media_ref_prompt_has_reference_tokens",
       "confidence_score": 1.0
     },
@@ -24726,12 +24885,33 @@
       "target": "module_video_gen_media_ref_prompt_has_reference_tokens"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "module_video_gen_media_ref_prompt_apply_reference_tokens",
+      "target": "module_video_gen_media_ref_prompt_resolvable_for_target",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "module/video_gen/media_ref_prompt.py",
-      "source_location": "L77",
+      "source_location": "L93",
       "weight": 1.0,
-      "source": "module_video_gen_media_ref_prompt_rationale_77",
+      "source": "module_video_gen_media_ref_prompt_rationale_93",
+      "target": "module_video_gen_media_ref_prompt_resolvable_for_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module/video_gen/media_ref_prompt.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "module_video_gen_media_ref_prompt_rationale_127",
       "target": "module_video_gen_media_ref_prompt_apply_reference_tokens",
       "confidence_score": 1.0
     },
@@ -24763,7 +24943,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/test_media_ref_prompt.py",
-      "source_location": "L64",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_audio_literal_zero_regression",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_audio_only_is_byte_identical",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_auto_label_coexistence",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L66",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens_test_compose_after_dialog",
       "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
@@ -24785,9 +24998,31 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_h3_video_substitution",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
       "source_location": "L39",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens_test_keep_leaves_text",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_keep_video",
       "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
     },
     {
@@ -24807,6 +25042,39 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_video_intact_alongside_image",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_video_noop_zero_regression",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_mixed_image_video_h3",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
       "source_location": "L49",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens_test_name_not_resolved",
@@ -24818,7 +25086,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/test_media_ref_prompt.py",
-      "source_location": "L58",
+      "source_location": "L60",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens_test_non_string",
       "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
@@ -24832,6 +25100,50 @@
       "source_location": "L29",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens_test_particle_preserved",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_video_aliases",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_video_double_digit",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_video_particle_preserved",
+      "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens_test_video_space_variant",
       "target": "module_video_gen_media_ref_prompt_apply_reference_tokens"
     },
     {
@@ -26953,7 +27265,37 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_media_ref_prompt.py",
-      "source_location": "L60",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_audio_literal_zero_regression",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_audio_only_is_byte_identical",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_auto_label_coexistence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L62",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens",
       "target": "tests_test_media_ref_prompt_testreferencetokens_test_compose_after_dialog",
@@ -26967,6 +27309,16 @@
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens",
       "target": "tests_test_media_ref_prompt_testreferencetokens_test_h3_substitution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_h3_video_substitution",
       "confidence_score": 1.0
     },
     {
@@ -26993,10 +27345,50 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_keep_video",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
       "source_location": "L32",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens",
       "target": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_anchors_and_free",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_video_intact_alongside_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_ltx_video_noop_zero_regression",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_mixed_image_video_h3",
       "confidence_score": 1.0
     },
     {
@@ -27013,7 +27405,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_media_ref_prompt.py",
-      "source_location": "L57",
+      "source_location": "L59",
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens",
       "target": "tests_test_media_ref_prompt_testreferencetokens_test_non_string",
@@ -27027,6 +27419,46 @@
       "weight": 1.0,
       "source": "tests_test_media_ref_prompt_testreferencetokens",
       "target": "tests_test_media_ref_prompt_testreferencetokens_test_particle_preserved",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_video_aliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_video_double_digit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_video_particle_preserved",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_media_ref_prompt.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "tests_test_media_ref_prompt_testreferencetokens",
+      "target": "tests_test_media_ref_prompt_testreferencetokens_test_video_space_variant",
       "confidence_score": 1.0
     },
     {
@@ -28698,5 +29130,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "832f48a6fd1a4c45c0d4f234f13ec960ff73d824"
+  "built_at_commit": "ae0e7874cffa7d6277236004b7ef86c1c5ddc935"
 }
