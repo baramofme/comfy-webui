@@ -91,9 +91,10 @@ class OptimizerTestCase(unittest.TestCase):
     and guarantee the optimizer HTTP layer never reaches a real socket."""
 
     def setUp(self):
-        # A fresh stub per test; capture its received values.
+        # A fresh stub per test; process_inputs constructs WorkflowAssembler(...) then
+        # calls .assemble, so install a factory that hands back this test's stub.
         self.stub = _StubAssembler("recipe", base_path="base")
-        h3_logic.WorkflowAssembler = self.stub
+        h3_logic.WorkflowAssembler = lambda *a, **k: self.stub
         # Deterministic cache state for every test.
         po.cache_clear()
         # Default-enabled gate; tests that need a specific value set it themselves.
