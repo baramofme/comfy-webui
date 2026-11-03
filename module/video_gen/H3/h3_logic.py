@@ -181,6 +181,15 @@ def process_inputs(ui_values, seed_override=None):
     local_ui_values['prompt'] = apply_reference_tokens(
         apply_dialog_prefixes(local_ui_values.get('prompt', ''), 'h3'), 'h3')
 
+    # Pre-processing step: rewrite the H3-tag-bearing prompt via the shared prompt
+    # optimizer BEFORE it is passed to the workflow assembler. Runs AFTER the
+    # `<d>`/`<Picture N>` conversion so the optimizer sees those tags and its
+    # system-prompt rules preserve them verbatim (never renumbered, never dropped).
+    # The optimizer is non-breaking: on any HTTP/parse failure it returns the
+    # ORIGINAL prompt with a WARNING logged; a disabled gate (env
+    # PROMPT_OPTIMIZER_ENABLED=0) passes the prompt through byte-identical.
+    local_ui_values['prompt'] = _optimize_h3_prompt(local_ui_values['prompt'])
+
     width = int(local_ui_values.get('width') or 0)
     height = int(local_ui_values.get('height') or 0)
     
