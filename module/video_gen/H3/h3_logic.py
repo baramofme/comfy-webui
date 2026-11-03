@@ -4,6 +4,7 @@ from comfy_webui_core.workflow_assembler import WorkflowAssembler
 from comfy_webui_core.utils import get_filename_prefix, handle_seed, save_temp_image, save_temp_video, save_temp_audio
 from comfy_webui_core.input_processors import process_lora_inputs
 from module.video_gen.dialog_prompt import apply_dialog_prefixes
+from module.video_gen.media_ref_prompt import apply_reference_tokens
 
 MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -146,7 +147,8 @@ def process_inputs(ui_values, seed_override=None):
 
     # `#` dialogue prefix -> H3 `<d>...</d>` inline (spoken-dialogue marker in the
     # caption that also drives H3's audio stream). No `#` lines => byte-identical.
-    local_ui_values['prompt'] = apply_dialog_prefixes(local_ui_values.get('prompt', ''), 'h3')
+    local_ui_values['prompt'] = apply_reference_tokens(
+        apply_dialog_prefixes(local_ui_values.get('prompt', ''), 'h3'), 'h3')
 
     width = int(local_ui_values.get('width') or 0)
     height = int(local_ui_values.get('height') or 0)
